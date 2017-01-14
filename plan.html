@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <title></title>
     <script type="text/javascript">
-        function Get(url) {//http://stackoverflow.com/a/22790025
+        function updateVertretungsplan() {//http://stackoverflow.com/a/22790025
             var httpreq = new XMLHttpRequest();
             httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php" + document.location.search, true);
             httpreq.onload = function (e) {
                 if (httpreq.readyState === 4) {
                     if(httpreq.status === 200) {
                         console.log(httpreq.respsonseText);
+                        updatePlan(JSON.parse(httpreq.responseText));
                     } else {
                         console.error(httpreq.statusText);
                     }
@@ -23,7 +24,11 @@
             return httpreq.responseText;
         }
 
-        console.log(Get());
+        function updatePlan(plan) {
+            alert(plan);
+        }
+
+        updateVertretungsplan();
     </script>
     <style>
         body {
