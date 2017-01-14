@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title>Vertretungsplan</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/header.css" rel="stylesheet" type="text/css" />
     <link href="css/kasten.css" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript">
@@ -60,10 +62,6 @@
 
         }
 
-        function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
-
-        }
-
         updateVertretungsplan();
     </script>
     <link href="css/uhrzeit.css" rel="stylesheet">
@@ -78,22 +76,7 @@
     <div class="header-info">
 
     </div>
-    <div class="kasten-container">
-
-    </div>
-    <div class="kasten">
-        <div class="kasten-fach">
-            <p class="kasten-fach-text">CH</p>
-        </div>
-        <div class="kasten-stunde">
-            <p class="kasten-stunde-text">1 - 2</p>
-        </div>
-        <div class="kasten-raum">
-            <p class="kasten-raum-text">2.204</p>
-        </div>
-        <div class="kasten-hinweis">
-            <p class="kasten-hinweis-text">Heimarbeit</p>
-        </div>
-    </div>
+    <div class="kasten-container" id="kasten-container"></div>
+    <script type="text/javascript" src="js/kasten.js"></script>
 </body>
 </html>
