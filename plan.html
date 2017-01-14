@@ -30,7 +30,30 @@
 
         function updatePlan(plan) {
           json = plan;
-          updateInfo(json["Informationen"][0]);
+
+          updateInfo(plan["Informationen"][0]);
+
+          var keineKlasse = ['Informationen', 'Tag', 'Time'];
+          for (var klassenName in plan) {
+            if(plan.hasOwnProperty(klassenName)) {
+              if(!keineKlasse.includes(klassenName)) {
+
+                var klasse = plan[klassenName];
+                for (var eintragsNummer in klasse) {
+                  if (klasse.hasOwnProperty(eintragsNummer)) {
+                    console.log(klassenName + " : " + eintragsNummer);
+                    var eintrag = klasse[eintragsNummer];
+                    console.log(eintrag["Art"]);
+                    updateKasten(klassenName, eintrag["Raum"], eintrag["Fach"],
+                                 eintrag["Stunde"], eintrag["Hinweis"],
+                                 eintrag["Art"]);
+                  }
+                }
+
+              }
+            }
+          }
+          console.log(json);
         }
 
         function updateInfo(informationen) {
