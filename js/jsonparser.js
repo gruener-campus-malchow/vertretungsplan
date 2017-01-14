@@ -77,11 +77,11 @@ function updateKlasse(klassenName, klasse) {
             letzterEintrag = {"Raum":"", "Fach":"", "Hinweis":"", "Art":"", "Stunde":""};
             eintraege.push(letzterEintrag);
         }
-        letzterEintrag["Raum"] += eintrag["Raum"];
-        letzterEintrag["Fach"] += eintrag["Fach"];
-        letzterEintrag["Hinweis"] += eintrag["Hinweis"];
-        letzterEintrag["Art"] += eintrag["Art"];
-        letzterEintrag["Stunde"] += eintrag["Stunde"];
+        letzterEintrag["Raum"] += eintrag["Raum"] + " ";
+        letzterEintrag["Fach"] += eintrag["Fach"] + " ";
+        letzterEintrag["Hinweis"] += eintrag["Hinweis"] + " ";
+        letzterEintrag["Art"] += eintrag["Art"] + " ";
+        letzterEintrag["Stunde"] += eintrag["Stunde"] + " ";
     }
     // update mit addierten Eintraegen
     for (var i = 0; i < eintraege.length; i += 1) {
