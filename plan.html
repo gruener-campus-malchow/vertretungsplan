@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <title></title>
     <script type="text/javascript">
+        var json;
+
         function updateVertretungsplan() {//http://stackoverflow.com/a/22790025
             var httpreq = new XMLHttpRequest();
             httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php" + document.location.search, true);
@@ -25,11 +27,12 @@
         }
 
         function updatePlan(plan) {
-            alert(plan);
+          json = plan;
+          updateInfo(json["Informationen"][0]);
         }
 
-        function updateInfo(information) {
-
+        function updateInfo(informationen) {
+          console.log(informationen);
         }
 
         function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
