@@ -36,7 +36,20 @@ function updateKlassen(plan) {
             }
         }
     }
-    // TODO: klassenNamen sortieren
+    // klassenNamen sortieren
+    var zahlenMuster = new RegExp("^\\d+");
+    klassenNamen.sort(function (s1, s2) {
+        var ret = parseInt(zahlenMuster.exec(s1)) - parseInt(zahlenMuster.exec(s2));
+        if (ret != 0) {
+            return ret;
+        } else if (s1 < s2) {
+            return -1;
+        } else if (s1 > s2) {
+            return 1;
+        }
+        return 0;
+        });
+    // update
     for (var i = 0; i < klassenNamen.length; i += 1) {
         var klassenName = klassenNamen[i];
         var klasse = plan[klassenName];
@@ -51,16 +64,44 @@ function updateKlasse(klassenName, klasse) {
             eintragsNummern.push(eintragsNummer);
         }
     }
-    // TODO: eintragsNummern sortieren
+    // eintragsNummern wie Zahlen sortieren, obwohl sie Strings sind
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    eintragsNummern.sort(function (s1, s2) { return parseInt(s1) - parseInt(s2); })
+    // addiere Eintraege auf
+    var eintraege = [];
+    var letzterEintrag;
     for (var i = 0; i < eintragsNummern.length; i += 1) {
         var eintragsNummer = eintragsNummern[i];
         var eintrag = klasse[eintragsNummer];
-        console.log(klassenName + " : " + eintragsNummer + " -> " +
-                    eintrag["Art"]);
-        updateKasten(klassenName, eintrag["Raum"], eintrag["Fach"],
-                     eintrag["Stunde"], eintrag["Hinweis"],
-                     eintrag["Art"]);
+        if (istNeuerEintrag(eintrag)) {
+            letzterEintrag = {"Raum":"", "Fach":"", "Hinweis":"", "Art":"", "Stunde":""};
+            eintraege.push(letzterEintrag);
+        }
+        letzterEintrag["Raum"] += eintrag["Raum"];
+        letzterEintrag["Fach"] += eintrag["Fach"];
+        letzterEintrag["Hinweis"] += eintrag["Hinweis"];
+        letzterEintrag["Art"] += eintrag["Art"];
+        letzterEintrag["Stunde"] += eintrag["Stunde"];
     }
+    // update mit addierten Eintraegen
+    for (var i = 0; i < eintraege.length; i += 1) {
+        var eintrag = eintraege[i];
+        updateKasten(klassenName,
+             eintrag["Raum"],
+             eintrag["Fach"],
+             eintrag["Stunde"],
+             eintrag["Hinweis"],
+             eintrag["Art"]);
+        console.log(eintrag);
+    }
+}
+
+var allSpace = new RegExp("^\\s*$"); 
+function isAllSpace(string) {
+    return allSpace.exec(string) != null;
+}
+function istNeuerEintrag(eintrag) {
+    return !isAllSpace(eintrag["Art"]);
 }
 
 function updateInfo(informationen) {
