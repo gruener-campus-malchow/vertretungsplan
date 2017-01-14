@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        function Get(url) {//http://stackoverflow.com/a/22790025
+            var httpreq = new XMLHttpRequest();
+            httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php" + document.location.search, true);
+            httpreq.onload = function (e) {
+                if (httpreq.readyState === 4) {
+                    if(httpreq.status === 200) {
+                        console.log(httpreq.respsonseText);
+                    } else {
+                        console.error(httpreq.statusText);
+                    }
+                }
+            }
+            httpreq.onerror = function (e) {
+                console.error(httpreq.statusText);
+            }
+            httpreq.send(null);
+            return httpreq.responseText;
+        }
+
+        console.log(Get());
+    </script>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+        }
+        .header {
+            width:100%;
+            height:100px;
+            background-color:#808080;
+        }
+        .header-info {
+            width:100%;
+            height:30px;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+
+    </div>
+    <div class="header-info">
+
+    </div>
+</body>
+</html>
