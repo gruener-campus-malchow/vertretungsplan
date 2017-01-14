@@ -3,17 +3,17 @@ function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
         <div class="kasten">                    \
             <div>                                                           \
                 <div class="kasten-fach">                                        \
-                    <p class="kasten-fach-text">' + fach + '</p>                 \
+                    '+ fach +'                  \
                 </div>                                                           \
                 <div class="kasten-stunde">                                      \
-                    <p class="kasten-stunde-text">' + stunde + '</p>             \
+                    ' + stunde + '             \
                 </div>                                                \
             </div>                                                          \
             <div class="kasten-raum">                                        \
-                <p class="kasten-raum-text">' + raum + '</p>                 \
+                ' + raum + '                \
             </div>                                                           \
             <div class="kasten-hinweis">                                     \
-                <p class="kasten-hinweis-text">' + hinweis + '</p>           \
+                ' + hinweis + '           \
             </div>                                                           \
         </div>                                                               \
         ';
