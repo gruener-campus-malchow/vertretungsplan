@@ -6,7 +6,13 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
     httpreq.onload = function(e) {
         if (httpreq.readyState === 4) {
             if (httpreq.status === 200) {
+              try {
                 updatePlan(JSON.parse(httpreq.responseText));
+                document.getElementById('plan').style.display='inline';
+                document.getElementById('wrong-pswd').style.display='none';
+              } catch(err) {//wrong password
+                document.getElementById('wrong-pswd').style.display='inline';
+              }
             } else {
                 console.error(httpreq.statusText);
             }
@@ -25,7 +31,7 @@ function updatePlan(plan) {
     updateInfo(plan["Informationen"][0]);
     updateKlassen(plan)
 }
-    
+
 function updateKlassen(plan) {
     var keineKlasse = ['Informationen', 'Tag', 'Time'];
     var klassenNamen = [];
@@ -96,7 +102,7 @@ function updateKlasse(klassenName, klasse) {
     }
 }
 
-var allSpace = new RegExp("^\\s*$"); 
+var allSpace = new RegExp("^\\s*$");
 function isAllSpace(string) {
     return allSpace.exec(string) != null;
 }

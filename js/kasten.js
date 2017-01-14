@@ -21,6 +21,8 @@ function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
     var kastenContainer = document.getElementById("kasten-container");
 
     kastenContainer.innerHTML += kasten;
+
+    console.log(klasse + " " + raum + " " + fach + " " + stunde + " " + hinweis + " " + art);
 }
 
 updateKasten("11a", "2.209", "BIO", "5", "Ausfall", "Ausfall");

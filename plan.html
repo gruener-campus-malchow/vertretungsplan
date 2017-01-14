@@ -1,5 +1,7 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="utf-8" />
     <title>Vertretungsplan</title>
@@ -7,22 +9,35 @@
     <link href="css/header.css" rel="stylesheet" type="text/css" />
     <link href="css/kasten.css" rel="stylesheet" type="text/css" />
     <link href="css/fonts.css" rel="stylesheet" type="text/css" />
-    <link href="css/uhrzeit.css" rel="stylesheet">
+    <link href="css/uhrzeit.css" rel="stylesheet" />
+    <link href="css/wrong-password.css" rel="stylesheet" />
     <script type="text/javascript" src="js/uhrzeit.js"></script>
     <script type="text/javascript" src="js/jsonparser.js"></script>
 </head>
+
 <body>
 
-    <div class="header">
-        <div class="time">
-            <div id="hours"></div>:<div id="minutes"></div>
-        </div>
-        <img class="header-img" src="img/logo.gif" draggable="false" />
+    <div class="wrong-pswd" id="wrong-pswd">
+        <p>Das eingegebene Passwort ist falsch.</p>
     </div>
-    <div class="header-info">
+
+    <div class="plan" id="plan">
+
+        <div class="header">
+            <div class="time">
+                <div id="hours"></div>:
+                <div id="minutes"></div>
+            </div>
+            <img class="header-img" src="img/logo.gif" draggable="false" />
+        </div>
+        <div class="header-info">
+
+        </div>
+        <div class="kasten-container" id="kasten-container"></div>
 
     </div>
-    <div class="kasten-container" id="kasten-container"></div>
+
     <script type="text/javascript" src="js/kasten.js"></script>
 </body>
+
 </html>
