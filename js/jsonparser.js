@@ -12,6 +12,8 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
                 document.getElementById('wrong-pswd').style.display='none';
               } catch(err) {//wrong password
                 document.getElementById('wrong-pswd').style.display='inline';
+
+                setTimeout(function() {window.location.replace("index.html");}, 2000);
               }
             } else {
                 console.error(httpreq.statusText);
