@@ -23,35 +23,47 @@ function updatePlan(plan) {
     json = plan;
 
     updateInfo(plan["Informationen"][0]);
-
+    updateKlassen(plan)
+}
+    
+function updateKlassen(plan) {
     var keineKlasse = ['Informationen', 'Tag', 'Time'];
+    var klassenNamen = [];
     for (var klassenName in plan) {
         if (plan.hasOwnProperty(klassenName)) {
             if (!keineKlasse.includes(klassenName)) {
-
-                var klasse = plan[klassenName];
-                for (var eintragsNummer in klasse) {
-                    if (klasse.hasOwnProperty(eintragsNummer)) {
-                        console.log(klassenName + " : " + eintragsNummer);
-                        var eintrag = klasse[eintragsNummer];
-                        console.log(eintrag["Art"]);
-                        updateKasten(klassenName, eintrag["Raum"], eintrag["Fach"],
-                            eintrag["Stunde"], eintrag["Hinweis"],
-                            eintrag["Art"]);
-                    }
-                }
-
+                klassenNamen.push(klassenName);
             }
         }
     }
-    console.log(json);
+    // TODO: klassenNamen sortieren
+    for (var i = 0; i < klassenNamen.length; i += 1) {
+        var klassenName = klassenNamen[i];
+        var klasse = plan[klassenName];
+        updateKlasse(klassenName, klasse);
+    }
+}
+
+function updateKlasse(klassenName, klasse) {
+    var eintragsNummern = [];
+    for (var eintragsNummer in klasse) {
+        if (klasse.hasOwnProperty(eintragsNummer)) {
+            eintragsNummern.push(eintragsNummer);
+        }
+    }
+    // TODO: eintragsNummern sortieren
+    for (var i = 0; i < eintragsNummern.length; i += 1) {
+        var eintragsNummer = eintragsNummern[i];
+        var eintrag = klasse[eintragsNummer];
+        console.log(klassenName + " : " + eintragsNummer + " -> " +
+                    eintrag["Art"]);
+        updateKasten(klassenName, eintrag["Raum"], eintrag["Fach"],
+                     eintrag["Stunde"], eintrag["Hinweis"],
+                     eintrag["Art"]);
+    }
 }
 
 function updateInfo(informationen) {
-
-}
-
-function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
 
 }
 
