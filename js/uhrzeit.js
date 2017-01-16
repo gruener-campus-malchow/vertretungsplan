@@ -11,11 +11,13 @@ function updateTime() {
     if(hours < 10) {
       hours_div.innerText = '0' + hours;
     } else {
+      hours_div.innerText = hours;
     }
 
     if(minutes < 10) {
       minutes_div.innerText = '0' + minutes;
     } else {
+      minutes_div.innerText = minutes;
     }
 
 }
