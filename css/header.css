@@ -9,5 +9,6 @@
     background-color:orangered;
 }
 .header-img {
-    
+  height:100px;
+  float:right;
 }

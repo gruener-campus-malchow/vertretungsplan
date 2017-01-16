@@ -1,4 +1,4 @@
-
+window.onload=updateTime;
 
 function updateTime() {
     var hours_div = document.getElementById("hours");
