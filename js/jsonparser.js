@@ -113,7 +113,7 @@ function istNeuerEintrag(eintrag) {
 }
 
 function updateInfo(informationen) {
-
+  document.getElementById('info-text').innerHTML=informationen;
 }
 
 updateVertretungsplan();
