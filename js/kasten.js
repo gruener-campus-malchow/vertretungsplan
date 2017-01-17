@@ -1,20 +1,23 @@
 function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
     var kasten = '                                                           \
         <div class="kasten">                    \
-            <div>                                                           \
+            <div class="top">                                                           \
                 <div class="kasten-fach">                                        \
                     '+ fach +'                  \
+                </div>                                                           \
+                <div class="kasten-raum">                                        \
+                    ' + raum + '                \
                 </div>                                                           \
                 <div class="kasten-stunde">                                      \
                     ' + stunde + '             \
                 </div>                                                \
             </div>                                                          \
-            <div class="kasten-raum">                                        \
-                ' + raum + '                \
-            </div>                                                           \
-            <div class="kasten-hinweis">                                     \
-                ' + hinweis + '           \
-            </div>                                                           \
+                                                          \
+            <div class="bottom">                          \
+              <div class="kasten-hinweis">                                     \
+                  ' + hinweis + '           \
+              </div>                                                           \
+            </div>                                         \
         </div>                                                               \
         ';
 
