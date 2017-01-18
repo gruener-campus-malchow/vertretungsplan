@@ -1,4 +1,9 @@
+var kastenContainer = document.getElementById("kasten-container");
+var letzteKlasse = '';
+
 function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
+    pruefeObNeueKlasse(klasse);
+
     var kasten = '                                                           \
         <div class="kasten">                    \
             <div class="top">                                                           \
@@ -21,11 +26,27 @@ function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
         </div>                                                               \
         ';
 
-    var kastenContainer = document.getElementById("kasten-container");
-
     kastenContainer.innerHTML += kasten;
 
     console.log(klasse + " " + raum + " " + fach + " " + stunde + " " + hinweis + " " + art);
 }
 
-updateKasten("11a", "2.209", "BIO", "5", "Ausfall", "Ausfall");
+function updateKastenKlasse(klasse) {
+  var kasten = '\
+    <div class="kasten klasse">\
+      <p>'+klasse+'</p>\
+    </div>\
+  ';
+
+  kastenContainer.innerHTML+=kasten;
+}
+
+function pruefeObNeueKlasse(klasse) {
+  if(klasse != letzteKlasse) {
+    updateKastenKlasse(klasse);
+  }
+
+  letzteKlasse = klasse;
+}
+
+//updateKasten("11a", "2.209", "BIO", "5", "Ausfall", "Ausfall");

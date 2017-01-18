@@ -58,3 +58,12 @@
     margin:5px;
     /*background-color:#777777;*/
 }
+.klasse {
+  font-size:2em;
+  background-color:green;
+}
+.klasse p {
+  margin:0;
+  margin-top:-5px;
+  padding:5px;
+}
