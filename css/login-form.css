@@ -12,7 +12,8 @@ body {
 
 .login {
   display:table-cell;
-  vertical-align: middle;
+  vertical-align:middle;
+  padding:20px;
 }
 
 h1 {
@@ -29,4 +30,12 @@ form {
 input {
   height:30px;
   font-size:1.5em;
+}
+
+p {
+  display:table;
+  margin:auto;
+  margin-top:20px;
+  font-size:1.2em;
+  font-family:Arial;
 }
