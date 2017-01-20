@@ -1,8 +1,23 @@
 var json;
+var parameters = {};
+
+/**
+  reads parameters in URL and adds them to the parameters map
+*/
+function setParametersFromURL() {
+  var params = document.location.search.split("&");
+  params[0] = params[0].replace("?", "");
+
+  for (var i = 0; i < params.length; i++) {
+    var param = params[i];
+    parameters[param.substring(0, param.indexOf("="))] = param.substring(param.indexOf("=")+1, param.length);
+  }
+}
 
 function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
     var httpreq = new XMLHttpRequest();
-    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php" + document.location.search, true);
+
+    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?cert=" + parameters["cert"], true);
     httpreq.onload = function(e) {
         if (httpreq.readyState === 4) {
             if (httpreq.status === 200) {
@@ -120,4 +135,5 @@ function updateInfo(informationen) {
   }
 }
 
+setParametersFromURL();
 updateVertretungsplan();
