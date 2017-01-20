@@ -5,7 +5,7 @@ function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
     pruefeObNeueKlasse(klasse);
 
     var kasten = '<div class="kasten';
-          if (art==='Ausfall') {
+          if (art.startsWith('Ausfall')) {
             kasten+=' ausfall';
           }
         kasten+='">                    \
