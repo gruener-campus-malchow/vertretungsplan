@@ -31,7 +31,7 @@ function updatePlan(plan) {
     json = plan;
 
     updateInfo(plan["Informationen"][0]);
-    updateKlassen(plan)
+    updateKlassen(plan);
 }
 
 function updateKlassen(plan) {
@@ -113,7 +113,11 @@ function istNeuerEintrag(eintrag) {
 }
 
 function updateInfo(informationen) {
-  document.getElementById('info-text').innerHTML=informationen;
+  if(informationen !== undefined) {
+    document.getElementById('info-text').innerHTML=informationen;
+  } else {
+    document.getElementById('info-text').style.padding=0;
+  }
 }
 
 updateVertretungsplan();
