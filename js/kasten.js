@@ -4,8 +4,11 @@ var letzteKlasse = '';
 function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
     pruefeObNeueKlasse(klasse);
 
-    var kasten = '                                                           \
-        <div class="kasten">                    \
+    var kasten = '<div class="kasten';
+          if (art.startsWith('Ausfall')) {
+            kasten+=' ausfall';
+          }
+        kasten+='">                    \
             <div class="top">                                                           \
                 <div class="kasten-fach">                                        \
                     '+ fach +'                  \
@@ -20,7 +23,7 @@ function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
                                                           \
             <div class="bottom">                          \
               <div class="kasten-hinweis">                                     \
-                  ' + hinweis + '           \
+                  ' + art + '           \
               </div>                                                           \
             </div>                                         \
         </div>                                                               \
