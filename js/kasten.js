@@ -2,6 +2,10 @@ var kastenContainer = document.getElementById("kasten-container");
 var letzteKlasse = '';
 
 function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
+    if(!klasseSollAngezeigtWerden(klasse)) {
+      return;
+    }
+
     pruefeObNeueKlasse(klasse);
 
     var kasten = '<div class="kasten';
@@ -42,6 +46,10 @@ function updateKastenKlasse(klasse) {
   ';
 
   kastenContainer.innerHTML+=kasten;
+}
+
+function klasseSollAngezeigtWerden(klasse) {
+  return (parameters["klasse"]==undefined || parameters["klasse"]=='' || parameters["klasse"]===klasse);
 }
 
 function pruefeObNeueKlasse(klasse) {
