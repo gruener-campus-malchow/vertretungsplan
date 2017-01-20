@@ -4,10 +4,10 @@ Um den aktuellen Entwicklungsstand auszutesten, besuchen Sie die Internetseite <
 
 # Wie kann ich mich an der Entwicklung des Plans beteiligen?
 Alles was Sie dafür benötigen, ist ein GitHub Account und eventuell Kenntnisse über mindestens eine der folgenden Sprachen:
-- HTML/CSS: wenn Sie das Layout/Design des Plans weiterentwickeln möchten
-- JavaScript: wenn Sie die Verarbeitung der Daten weiterentwickeln möchten
+- HTML/CSS: wenn Sie das Layout/Design des Plans weiterentwickeln möchten ([Tutorial](http://learn.opentechschool.org))
+- JavaScript: wenn Sie die Verarbeitung der Daten weiterentwickeln möchten ([Tutorial](http://learn.opentechschool.org/#JavaScript))
 
-Erforderliche Schritte zum Weiterentwickeln:
+Erforderliche Schritte zum Weiterentwickeln ([Tutorial](https://github.com/fossasia/flappy-svg/blob/master/tasks/learn_git/Deutsch.md)):
 - bei GitHub anmelden
 - GitHub Desktop herunterladen
 - Clonen der Repository
