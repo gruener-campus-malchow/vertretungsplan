@@ -6,6 +6,7 @@ In der Datei "jsonparser.js" in der Funktion "updateVertretungsplan()" wird eine
 Bei Erfolg kommt eine .json-Datei zurück, die der Funktion "updatePlan()" übergeben wird. Hier werden alle Daten aus der Datei ausgewertet.
 Ein anonymisiertes Beispiel sieht so aus:
 
+```
 {"Tag":"20.1.2017 Freitag","Time":"2017-01-20","Informationen":[],"7b":
 
   {"1":
@@ -23,3 +24,4 @@ Ein anonymisiertes Beispiel sieht so aus:
   }
   
 }
+```
