@@ -1,18 +1,18 @@
-var kastenContainer = document.getElementById("kasten-container");
-var letzteKlasse = '';
+var boxContainer = document.getElementById("kasten-container");
+var lastClass = '';
 
-function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
-    if(!klasseSollAngezeigtWerden(klasse)) {
+function updateBox(klasse, raum, fach, stunde, hinweis, art) {
+    if(!classShouldBeShown(klasse)) {
       return;
     }
 
-    pruefeObNeueKlasse(klasse);
+    checkIfNewClass(klasse);
 
-    var kasten = '<div class="kasten';
+    var box = '<div class="kasten';
           if (art.startsWith('Ausfall')) {
-            kasten+=' ausfall';
+            box+=' ausfall';
           }
-        kasten+='">                    \
+        box+='">                    \
             <div class="top">                                                           \
                 <div class="kasten-fach">                                        \
                     '+ fach +'                  \
@@ -33,31 +33,31 @@ function updateKasten(klasse, raum, fach, stunde, hinweis, art) {
         </div>                                                               \
         ';
 
-    kastenContainer.innerHTML += kasten;
+    boxContainer.innerHTML += box;
 
     console.log(klasse + " " + raum + " " + fach + " " + stunde + " " + hinweis + " " + art);
 }
 
-function updateKastenKlasse(klasse) {
-  var kasten = '\
+function updateBoxClass(schoolClass) {
+  var box = '\
     <div class="kasten klasse">\
-      <p>'+klasse+'</p>\
+      <p>'+schoolClass+'</p>\
     </div>\
   ';
 
-  kastenContainer.innerHTML+=kasten;
+  boxContainer.innerHTML+=box;
 }
 
-function klasseSollAngezeigtWerden(klasse) {
-  return (parameters["klasse"]==undefined || parameters["klasse"]=='' || parameters["klasse"]===klasse);
+function classShouldBeShown(schoolClass) {
+  return (parameters["klasse"]==undefined || parameters["klasse"]=='' || parameters["klasse"]===schoolClass);
 }
 
-function pruefeObNeueKlasse(klasse) {
-  if(klasse != letzteKlasse) {
-    updateKastenKlasse(klasse);
+function checkIfNewClass(schoolClass) {
+  if(schoolClass != lastClass) {
+    updateBoxClass(schoolClass);
   }
 
-  letzteKlasse = klasse;
+  lastClass = schoolClass;
 }
 
 //updateKasten("11a", "2.209", "BIO", "5", "Ausfall", "Ausfall");

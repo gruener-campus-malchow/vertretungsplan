@@ -52,23 +52,23 @@ function updatePlan(plan) {
     json = plan;
 
     updateInfo(plan["Informationen"][0]);
-    updateKlassen(plan);
+    updateClasses(plan);
 }
 
-function updateKlassen(plan) {
-    var keineKlasse = ['Informationen', 'Tag', 'Time'];
-    var klassenNamen = [];
-    for (var klassenName in plan) {
-        if (plan.hasOwnProperty(klassenName)) {
-            if (!keineKlasse.includes(klassenName)) {
-                klassenNamen.push(klassenName);
+function updateClasses(plan) {
+    var noClass = ['Informationen', 'Tag', 'Time'];
+    var classNames = [];
+    for (var className in plan) {
+        if (plan.hasOwnProperty(className)) {
+            if (!noClass.includes(className)) {
+                classNames.push(className);
             }
         }
     }
     // klassenNamen sortieren
-    var zahlenMuster = new RegExp("^\\d+");
-    klassenNamen.sort(function (s1, s2) {
-        var ret = parseInt(zahlenMuster.exec(s1)) - parseInt(zahlenMuster.exec(s2));
+    var numberPattern = new RegExp("^\\d+");
+    classNames.sort(function (s1, s2) {
+        var ret = parseInt(numberPattern.exec(s1)) - parseInt(numberPattern.exec(s2));
         if (ret != 0) {
             return ret;
         } else if (s1 < s2) {
@@ -79,49 +79,49 @@ function updateKlassen(plan) {
         return 0;
         });
     // update
-    for (var i = 0; i < klassenNamen.length; i += 1) {
-        var klassenName = klassenNamen[i];
-        var klasse = plan[klassenName];
-        updateKlasse(klassenName, klasse);
+    for (var i = 0; i < classNames.length; i += 1) {
+        var className = classNames[i];
+        var schoolClass = plan[className];
+        updateClass(className, schoolClass);
     }
 }
 
-function updateKlasse(klassenName, klasse) {
-    var eintragsNummern = [];
-    for (var eintragsNummer in klasse) {
-        if (klasse.hasOwnProperty(eintragsNummer)) {
-            eintragsNummern.push(eintragsNummer);
+function updateClass(className, schoolClass) {
+    var entryNumbers = [];
+    for (var entryNumber in schoolClass) {
+        if (schoolClass.hasOwnProperty(entryNumber)) {
+            entryNumbers.push(entryNumber);
         }
     }
     // eintragsNummern wie Zahlen sortieren, obwohl sie Strings sind
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-    eintragsNummern.sort(function (s1, s2) { return parseInt(s1) - parseInt(s2); })
+    entryNumbers.sort(function (s1, s2) { return parseInt(s1) - parseInt(s2); })
     // addiere Eintraege auf
-    var eintraege = [];
-    var letzterEintrag;
-    for (var i = 0; i < eintragsNummern.length; i += 1) {
-        var eintragsNummer = eintragsNummern[i];
-        var eintrag = klasse[eintragsNummer];
-        if (istNeuerEintrag(eintrag)) {
-            letzterEintrag = {"Raum":"", "Fach":"", "Hinweis":"", "Art":"", "Stunde":""};
-            eintraege.push(letzterEintrag);
+    var entries = [];
+    var lastEntry;
+    for (var i = 0; i < entryNumbers.length; i += 1) {
+        var entryNumber = entryNumbers[i];
+        var entry = schoolClass[entryNumber];
+        if (isNewEntry(entry)) {
+            lastEntry = {"Raum":"", "Fach":"", "Hinweis":"", "Art":"", "Stunde":""};
+            entries.push(lastEntry);
         }
-        letzterEintrag["Raum"] += eintrag["Raum"] + " ";
-        letzterEintrag["Fach"] += eintrag["Fach"] + " ";
-        letzterEintrag["Hinweis"] += eintrag["Hinweis"] + " ";
-        letzterEintrag["Art"] += eintrag["Art"] + " ";
-        letzterEintrag["Stunde"] += eintrag["Stunde"] + " ";
+        lastEntry["Raum"] += entry["Raum"] + " ";
+        lastEntry["Fach"] += entry["Fach"] + " ";
+        lastEntry["Hinweis"] += entry["Hinweis"] + " ";
+        lastEntry["Art"] += entry["Art"] + " ";
+        lastEntry["Stunde"] += entry["Stunde"] + " ";
     }
     // update mit addierten Eintraegen
-    for (var i = 0; i < eintraege.length; i += 1) {
-        var eintrag = eintraege[i];
-        updateKasten(klassenName,
-             eintrag["Raum"],
-             eintrag["Fach"],
-             eintrag["Stunde"],
-             eintrag["Hinweis"],
-             eintrag["Art"]);
-        console.log(eintrag);
+    for (var i = 0; i < entries.length; i += 1) {
+        var entry = entries[i];
+        updateBox(className,
+             entry["Raum"],
+             entry["Fach"],
+             entry["Stunde"],
+             entry["Hinweis"],
+             entry["Art"]);
+        console.log(entry);
     }
 }
 
@@ -129,13 +129,13 @@ var allSpace = new RegExp("^\\s*$");
 function isAllSpace(string) {
     return allSpace.exec(string) != null;
 }
-function istNeuerEintrag(eintrag) {
+function isNewEntry(eintrag) {
     return !isAllSpace(eintrag["Art"]);
 }
 
-function updateInfo(informationen) {
-  if(informationen !== undefined) {
-    document.getElementById('info-text').innerHTML=informationen;
+function updateInfo(information) {
+  if(information !== undefined) {
+    document.getElementById('info-text').innerHTML=information;
   } else {
     document.getElementById('info-text').style.padding=0;
   }
