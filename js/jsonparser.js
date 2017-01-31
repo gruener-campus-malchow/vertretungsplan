@@ -15,21 +15,26 @@ function setParametersFromURL() {
 }
 
 function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
-    json = {"Tag":"20.1.2017 Freitag","Time":"2017-01-20","Informationen":["Das sind Test-Informationen."],"7b":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"7a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"9a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}}};
+    /*json = {"Tag":"20.1.2017 Freitag","Time":"2017-01-20","Informationen":["Das sind Test-Informationen."],"7b":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"7a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"9a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}}};
     updatePlan(json);
     document.getElementById('plan').style.display='inline';
-    document.getElementById('wrong-pswd').style.display='none';
+    document.getElementById('wrong-pswd').style.display='none';*/
 
-    /*var httpreq = new XMLHttpRequest();
+    var httpreq = new XMLHttpRequest();
 
     httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?cert=" + parameters["cert"], true);
     httpreq.onload = function(e) {
         if (httpreq.readyState === 4) {
             if (httpreq.status === 200) {
               try {
-                updatePlan(JSON.parse(httpreq.responseText));
-                document.getElementById('plan').style.display='inline';
-                document.getElementById('wrong-pswd').style.display='none';
+                var responseJSON = JSON.parse(httpreq.responseText);
+                if (responseJSON[0] === "false") {//kein Plan online
+                  document.getElementById('kein-plan').style.display='block';
+                } else {
+                  updatePlan(responseJSON);
+                  document.getElementById('plan').style.display='inline';
+                  document.getElementById('wrong-pswd').style.display='none';
+                }
               } catch(err) {//wrong password
                 document.getElementById('wrong-pswd').style.display='inline';
 
@@ -45,10 +50,11 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
     }
     httpreq.send(null);
     return httpreq.responseText;
-    */
+
 }
 
 function updatePlan(plan) {
+    plan = plan[0];
     json = plan;
 
     updateInfo(plan);
