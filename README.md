@@ -1,5 +1,5 @@
 # Vertretungsplan des Grünen Campus Malchow
-Hier wird der Vertetungsplan des GCM entwickelt.
+Hier wird der Vertetungsplan des [Grünen Campus Malchow](http://gruener-campus-malchow.de/) entwickelt.
 Um den aktuellen Entwicklungsstand auszutesten, besuchen Sie die Internetseite <a href="http://vertretung.quelltext.eu" target="_blank">vertretung.quelltext.eu</a>.
 
 # Wie kann ich mich an der Entwicklung des Plans beteiligen?
