@@ -51,7 +51,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 function updatePlan(plan) {
     json = plan;
 
-    updateInfo(plan["Informationen"][0]);
+    updateInfo(plan);
     updateClasses(plan);
 }
 
@@ -133,9 +133,26 @@ function isNewEntry(eintrag) {
     return !isAllSpace(eintrag["Art"]);
 }
 
-function updateInfo(information) {
-  if(information !== undefined) {
-    document.getElementById('info-text').innerHTML=information;
+function updateInfo(plan) {
+  var infos = plan["Informationen"];
+  var text = '';
+
+  if (infos!==undefined && infos!=='') {
+    for (var i = 0; i < infos.length; i++) {
+
+      var info = infos[i];
+
+      if(info!==undefined && info.length>1) {
+        text += info;
+
+        if (i<infos.length-1) {
+          text+='<br>';
+        }
+      }
+
+    }
+
+    document.getElementById('info-text').innerHTML=text;
   } else {
     document.getElementById('info-text').style.padding=0;
   }
