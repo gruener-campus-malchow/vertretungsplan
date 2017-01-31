@@ -29,14 +29,14 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
               try {
                 var responseJSON = JSON.parse(httpreq.responseText);
                 if (responseJSON[0] === "false") {//kein Plan online
-                  document.getElementById('kein-plan').style.display='block';
+                  document.getElementById('kein-plan').classList.remove('hidden');
                 } else {
                   updatePlan(responseJSON);
-                  document.getElementById('plan').style.display='inline';
-                  document.getElementById('wrong-pswd').style.display='none';
+                  document.getElementById('plan').classList.remove('hidden');
+                  document.getElementById('wrong-pswd').classList.add('hidden');
                 }
               } catch(err) {//wrong password
-                document.getElementById('wrong-pswd').style.display='inline';
+                document.getElementById('wrong-pswd').classList.remove('hidden');
 
                 setTimeout(function() {window.location.replace("index.html");}, 2000);
               }
@@ -160,7 +160,7 @@ function updateInfo(plan) {
 
     document.getElementById('info-text').innerText=text;
   } else {
-    document.getElementById('info-text').style.padding=0;
+    document.getElementById('info-text').classList.add('hidden');
   }
 }
 
