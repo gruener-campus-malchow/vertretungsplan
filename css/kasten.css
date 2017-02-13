@@ -1,9 +1,8 @@
 .kasten-container {
     width: auto;
     height: auto;
-    margin-top:4px;
-    position: relative;
-    margin:10px;
+    position:relative;
+    padding:10px;
 }
 .kasten {
     margin-left:4px;

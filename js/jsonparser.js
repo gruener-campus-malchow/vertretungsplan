@@ -59,6 +59,12 @@ function updatePlan(plan) {
 
     updateInfo(plan);
     updateClasses(plan);
+    setPlanPaddingTop();
+}
+
+function setPlanPaddingTop() {
+  var plan = document.getElementById('kasten-container');
+  plan.style.paddingTop=$("#header").height() + $("#header-info").height() + "px";
 }
 
 function updateClasses(plan) {
