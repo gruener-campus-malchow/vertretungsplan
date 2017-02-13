@@ -152,7 +152,7 @@ function updateInfo(plan) {
         text += info;
 
         if (i<infos.length-1) {
-          text+='<br>';
+          text+='\n';
         }
       }
 
