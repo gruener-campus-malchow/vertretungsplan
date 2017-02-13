@@ -22,7 +22,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 
     var httpreq = new XMLHttpRequest();
 
-    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?cert=" + parameters["cert"]+'&dev=wanto', true);
+    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?cert=" + parameters["cert"], true);
     httpreq.onload = function(e) {
         if (httpreq.readyState === 4) {
             if (httpreq.status === 200) {
