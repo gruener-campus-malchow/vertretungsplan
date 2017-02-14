@@ -3,6 +3,7 @@
     height: auto;
     position:relative;
     padding:10px;
+    z-index:-1;
 }
 .kasten {
     margin-left:4px;
