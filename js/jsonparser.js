@@ -28,14 +28,18 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
             if (httpreq.status === 200) {
               try {
                 var responseJSON = JSON.parse(httpreq.responseText);
+
                 if (responseJSON[0] === "false") {//kein Plan online
                   document.getElementById('kein-plan').classList.remove('hidden');
                 } else {
-                  updatePlan(responseJSON);
-                  document.getElementById('plan').classList.remove('hidden');
                   document.getElementById('wrong-pswd').classList.add('hidden');
+                  //plan has to be set visible before calling updatePlan() because
+                  //calculating the correct offset for the plan wouldn't work otherwise
+                  document.getElementById('plan').classList.remove('hidden');
+                  updatePlan(responseJSON);
                 }
               } catch(err) {//wrong password
+                document.getElementById('plan').classList.add('hidden');
                 document.getElementById('wrong-pswd').classList.remove('hidden');
 
                 setTimeout(function() {window.location.replace("index.html");}, 2000);
@@ -58,7 +62,13 @@ function updatePlan(plan) {
     json = plan;
 
     updateInfo(plan);
+    setPlanPaddingTop();
     updateClasses(plan);
+}
+
+function setPlanPaddingTop() {
+  var plan = document.getElementById('kasten-container');
+  plan.style.paddingTop=$("#header").height() + $("#header-info").height() + 10 + "px";
 }
 
 function updateClasses(plan) {
