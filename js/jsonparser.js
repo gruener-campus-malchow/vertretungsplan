@@ -176,3 +176,5 @@ function updateInfo(plan) {
 
 setParametersFromURL();
 updateVertretungsplan();
+
+window.onresize=setPlanPaddingTop;
