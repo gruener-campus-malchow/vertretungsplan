@@ -29,20 +29,20 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
               try {
                 var responseJSON = JSON.parse(httpreq.responseText);
 
-                if (responseJSON[0] === "false") {//kein Plan online
-                  document.getElementById('kein-plan').classList.remove('hidden');
+                if(noPlanOnline(responseJSON)) {
+                  showById('kein-plan');
                 } else {
-                  document.getElementById('wrong-pswd').classList.add('hidden');
+                  hideById('wrong-pswd');
                   //plan has to be set visible before calling updatePlan() because
                   //calculating the correct offset for the plan wouldn't work otherwise
-                  document.getElementById('plan').classList.remove('hidden');
+                  showById('plan');
                   updatePlan(responseJSON);
                 }
               } catch(err) {//wrong password
-                document.getElementById('plan').classList.add('hidden');
-                document.getElementById('wrong-pswd').classList.remove('hidden');
+                hideById('plan');
+                showById('wrong-pswd');
 
-                setTimeout(function() {window.location.replace("index.html");}, 2000);
+                redirect("index.html", 2000);
               }
             } else {
                 console.error(httpreq.statusText);
@@ -57,18 +57,29 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 
 }
 
+function noPlanOnline(json) {
+  return json[0] === "false";
+}
+
+function showById(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function hideById(id) {
+  document.getElementById(id).classList.add('hidden');
+}
+
+function redirect(url, delay) {
+  setTimeout(function() {window.location.replace(url);}, delay);
+}
+
 function updatePlan(plan) {
     plan = plan[0];
     json = plan;
 
     updateInfo(plan);
-    setPlanPaddingTop();
+    updatePlanPaddingTop();  //style.js
     updateClasses(plan);
-}
-
-function setPlanPaddingTop() {
-  var plan = document.getElementById('kasten-container');
-  plan.style.paddingTop=$("#header").height() + $("#header-info").height() + 10 + "px";
 }
 
 function updateClasses(plan) {
@@ -170,11 +181,9 @@ function updateInfo(plan) {
 
     document.getElementById('info-text').innerText=text;
   } else {
-    document.getElementById('info-text').classList.add('hidden');
+    hideById('info-text');
   }
 }
 
 setParametersFromURL();
 updateVertretungsplan();
-
-window.onresize=setPlanPaddingTop;
