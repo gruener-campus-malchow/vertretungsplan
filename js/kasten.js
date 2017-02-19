@@ -34,8 +34,6 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
         ';
 
     boxContainer.innerHTML += box;
-
-    console.log(klasse + " " + raum + " " + fach + " " + stunde + " " + hinweis + " " + art);
 }
 
 function updateBoxClass(schoolClass) {

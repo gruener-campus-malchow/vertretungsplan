@@ -28,6 +28,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
             if (httpreq.status === 200) {
               try {
                 var responseJSON = JSON.parse(httpreq.responseText);
+                console.log(responseJSON);
 
                 if(noPlanOnline(responseJSON)) {
                   showById('kein-plan');
@@ -37,6 +38,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
                   //calculating the correct offset for the plan wouldn't work otherwise
                   showById('plan');
                   updatePlan(responseJSON);
+                  finishedParsing();
                 }
               } catch(err) {//wrong password
                 hideById('plan');
@@ -55,6 +57,10 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
     httpreq.send(null);
     return httpreq.responseText;
 
+}
+
+function finishedParsing() {
+  startScrolling();
 }
 
 function noPlanOnline(json) {
@@ -148,7 +154,6 @@ function updateClass(className, schoolClass) {
              entry["Stunde"],
              entry["Hinweis"],
              entry["Art"]);
-        console.log(entry);
     }
 }
 
