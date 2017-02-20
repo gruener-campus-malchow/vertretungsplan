@@ -61,14 +61,6 @@ function noPlanOnline(json) {
   return json[0] === "false";
 }
 
-function showById(id) {
-  document.getElementById(id).classList.remove('hidden');
-}
-
-function hideById(id) {
-  document.getElementById(id).classList.add('hidden');
-}
-
 function redirect(url, delay) {
   setTimeout(function() {window.location.replace(url);}, delay);
 }
@@ -188,23 +180,6 @@ function updateInfo(plan) {
   }
 
   setInfoText(infos[plan[0]['Tag']]); //information of first day
-}
-
-function setInfoText(text) {
-  if(text!==undefined&&text!=='') {
-    showInfoText();
-    document.getElementById('info-text').innerText=text;
-  } else {
-    hideInfoText();
-  }
-}
-
-function hideInfoText() {
-  hideById('info-text');
-}
-
-function showInfoText() {
-  showById('info-text');
 }
 
 setParametersFromURL();
