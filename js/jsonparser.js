@@ -1,4 +1,3 @@
-var json;
 var parameters = {};
 
 /**
@@ -75,7 +74,6 @@ function redirect(url, delay) {
 
 function updatePlan(plan) {
     plan = plan[0];
-    json = plan;
 
     updateInfo(plan);
     updatePlanPaddingTop();  //style.js
