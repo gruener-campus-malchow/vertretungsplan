@@ -33,3 +33,7 @@ function hideInfoText() {
 function showInfoText() {
   showById('info-text');
 }
+
+function setDateText(text) {
+  document.getElementById('date-text').innerText=text;
+}
