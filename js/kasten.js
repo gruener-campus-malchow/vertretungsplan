@@ -34,14 +34,22 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
         ';
 
     boxContainer.innerHTML += box;
-
-    console.log(klasse + " " + raum + " " + fach + " " + stunde + " " + hinweis + " " + art);
 }
 
 function updateBoxClass(schoolClass) {
   var box = '\
     <div class="kasten klasse">\
       <p>'+schoolClass+'</p>\
+    </div>\
+  ';
+
+  boxContainer.innerHTML+=box;
+}
+
+function updateBoxDate(date) {
+  var box = '\
+    <div class="kasten date">\
+      <p>'+date+'</p>\
     </div>\
   ';
 

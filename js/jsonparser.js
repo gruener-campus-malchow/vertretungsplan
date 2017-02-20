@@ -1,4 +1,5 @@
 var parameters = {};
+var infos = {};
 
 /**
   reads parameters in URL and adds them to the parameters map
@@ -73,8 +74,6 @@ function redirect(url, delay) {
 }
 
 function updatePlan(plan) {
-    plan = plan[0];
-
     updateInfo(plan);
     updatePlanPaddingTop();  //style.js
     updateClasses(plan);
@@ -82,32 +81,40 @@ function updatePlan(plan) {
 
 function updateClasses(plan) {
     var noClass = ['Informationen', 'Tag', 'Time'];
-    var classNames = [];
-    for (var className in plan) {
-        if (plan.hasOwnProperty(className)) {
-            if (!noClass.includes(className)) {
-                classNames.push(className);
-            }
-        }
-    }
-    // klassenNamen sortieren
-    var numberPattern = new RegExp("^\\d+");
-    classNames.sort(function (s1, s2) {
-        var ret = parseInt(numberPattern.exec(s1)) - parseInt(numberPattern.exec(s2));
-        if (ret != 0) {
-            return ret;
-        } else if (s1 < s2) {
-            return -1;
-        } else if (s1 > s2) {
-            return 1;
-        }
-        return 0;
-        });
-    // update
-    for (var i = 0; i < classNames.length; i += 1) {
-        var className = classNames[i];
-        var schoolClass = plan[className];
-        updateClass(className, schoolClass);
+
+    for (var i = 0; i < plan.length; i++) {
+      var day = plan[i];
+
+      updateBoxDate(day['Tag']);
+
+      var classNames = [];
+      for (var className in day) {
+          if (day.hasOwnProperty(className)) {
+              if (!noClass.includes(className)) {
+                  classNames.push(className);
+              }
+          }
+      }
+      // klassenNamen sortieren
+      var numberPattern = new RegExp("^\\d+");
+      classNames.sort(function (s1, s2) {
+          var ret = parseInt(numberPattern.exec(s1)) - parseInt(numberPattern.exec(s2));
+          if (ret != 0) {
+              return ret;
+          } else if (s1 < s2) {
+              return -1;
+          } else if (s1 > s2) {
+              return 1;
+          }
+          return 0;
+          });
+      // update
+      for (var k = 0; k < classNames.length; k += 1) {
+          var className = classNames[k];
+          var schoolClass = day[className];
+          updateClass(className, schoolClass);
+      }
+
     }
 }
 
@@ -146,7 +153,6 @@ function updateClass(className, schoolClass) {
              entry["Stunde"],
              entry["Hinweis"],
              entry["Art"]);
-        console.log(entry);
     }
 }
 
@@ -159,28 +165,46 @@ function isNewEntry(eintrag) {
 }
 
 function updateInfo(plan) {
-  var infos = plan["Informationen"];
-  var text = '';
+  for (var i = 0; i < plan.length; i++) {
+    var day = plan[i];
+    var informations = day['Informationen'];
+    var text = '';
+    if (informations!==undefined&&informations!=='') {
 
-  if (infos!==undefined && infos!=='') {
-    for (var i = 0; i < infos.length; i++) {
-
-      var info = infos[i];
-
-      if(info!==undefined && info.length>1) {
+      for (var j = 0; j < informations.length; j++) {
+        var info = day['Informationen'][j];
         text += info;
 
-        if (i<infos.length-1) {
+        if(j < informations.length-1) {
           text+='\n';
         }
       }
 
+    } else {
+      hideInfoText();
     }
 
+    infos[day['Tag']]=text;
+  }
+
+  setInfoText(infos[plan[0]['Tag']]); //information of first day
+}
+
+function setInfoText(text) {
+  if(text!==undefined&&text!=='') {
+    showInfoText();
     document.getElementById('info-text').innerText=text;
   } else {
-    hideById('info-text');
+    hideInfoText();
   }
+}
+
+function hideInfoText() {
+  hideById('info-text');
+}
+
+function showInfoText() {
+  showById('info-text');
 }
 
 setParametersFromURL();
