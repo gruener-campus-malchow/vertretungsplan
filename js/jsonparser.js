@@ -79,16 +79,18 @@ function updatePlan(plan) {
 
 function updateClasses(plan) {
     var noClass = ['Informationen', 'Tag', 'Time'];
-
+    
     for (var i = 0; i < plan.length; i++) {
       var day = plan[i];
 
       if(plan.length>1) {
         if(i !== 0) {
           updateBoxDate(day['Tag']);
-        } else {
-          setDateText(day['Tag']);
         }
+      }
+
+      if(i===0) {
+        setDateText(day['Tag']);
       }
 
       var classNames = [];
