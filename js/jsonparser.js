@@ -83,7 +83,9 @@ function updateClasses(plan) {
     for (var i = 0; i < plan.length; i++) {
       var day = plan[i];
 
-      updateBoxDate(day['Tag']);
+      if(plan.length>1) {
+        updateBoxDate(day['Tag']);
+      }
 
       var classNames = [];
       for (var className in day) {
