@@ -70,3 +70,9 @@
 .ausfall {
   background-color:red;
 }
+.date {
+  background-color:yellow;
+}
+.date p {
+  margin:15px;
+}

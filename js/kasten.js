@@ -46,6 +46,16 @@ function updateBoxClass(schoolClass) {
   boxContainer.innerHTML+=box;
 }
 
+function updateBoxDate(date) {
+  var box = '\
+    <div class="kasten date">\
+      <p>'+date+'</p>\
+    </div>\
+  ';
+
+  boxContainer.innerHTML+=box;
+}
+
 function classShouldBeShown(schoolClass) {
   return (parameters["klasse"]==undefined || parameters["klasse"]=='' || parameters["klasse"]===schoolClass);
 }
