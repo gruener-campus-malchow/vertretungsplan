@@ -20,13 +20,17 @@ function scroll() {
 function scrollToTop() {
   $('html,body').stop().animate({
     scrollTop: 0
-  });
+  }, finishedScrolling);
 }
 
 function scrollDown() {
   $('html,body').stop().animate({
     scrollTop: '+=' + scrollDistance
-  });
+  }, finishedScrolling);
+}
+
+function finishedScrolling() {
+  
 }
 
 function bottomReached() {
