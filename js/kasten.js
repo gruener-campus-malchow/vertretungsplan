@@ -1,3 +1,5 @@
+var dateBoxes = [];
+
 var boxContainer = document.getElementById("kasten-container");
 var lastClass = '';
 
@@ -55,6 +57,7 @@ function updateBoxDate(date) {
 
   var element = createElement(box);
   boxContainer.appendChild(element);
+  dateBoxes.push(element);
 }
 
 function createElement(html) {
