@@ -79,7 +79,7 @@ function updatePlan(plan) {
 
 function updateClasses(plan) {
     var noClass = ['Informationen', 'Tag', 'Time'];
-    
+
     for (var i = 0; i < plan.length; i++) {
       var day = plan[i];
 
