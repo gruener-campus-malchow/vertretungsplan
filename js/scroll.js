@@ -20,17 +20,21 @@ function scroll() {
 function scrollToTop() {
   $('html,body').stop().animate({
     scrollTop: 0
-  }, finishedScrolling);
+  }, finishedScrollingToTop);
 }
 
 function scrollDown() {
   $('html,body').stop().animate({
     scrollTop: '+=' + scrollDistance
-  }, finishedScrolling);
+  }, finishedScrollingDownOnce);
 }
 
-function finishedScrolling() {
-  
+function finishedScrollingToTop() {
+  setDateText('');
+}
+
+function finishedScrollingDownOnce() {
+  updateDateHeader();
 }
 
 function bottomReached() {

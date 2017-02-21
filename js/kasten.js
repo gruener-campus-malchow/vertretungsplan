@@ -58,6 +58,8 @@ function updateBoxDate(date) {
   var element = createElement(box);
   boxContainer.appendChild(element);
   dateBoxes.push(element);
+
+  return element;
 }
 
 function createElement(html) {
