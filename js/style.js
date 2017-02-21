@@ -45,7 +45,6 @@ function updateDateHeader() {
   var latestDateBox = getDateBoxByOffset(invisibleDateBoxes, highestOffset);
 
   //setDateText(getDateBoxText(currentDateBox));
-  console.log(currentDateBox);
 }
 
 function getInvisibleDateBoxes(visibleY) {
@@ -78,22 +77,19 @@ function getHighestOffset(boxes) {
 }
 
 function getDateBoxByOffset(boxes, offset) {
-  var box;
-
   for (var i = 0; i < boxes.length; i++) {
     var dateBox = boxes[i];
 
     if (getDateBoxTopOffset(dateBox) === offset) {
-      box = dateBox;
-      break;
+      return dateBox;
     }
   }
-
-  return box;
 }
 
 function getDateBoxTopOffset(dateBox) {
-  return $(dateBox).offset().top;
+  var offset = dateBox.offsetTop;
+  console.log(offset);   //always equals 0
+  return offset;
 }
 
 function getDateBoxText(dateBox) {
