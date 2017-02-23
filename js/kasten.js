@@ -1,3 +1,5 @@
+var dateBoxes = [];
+
 var boxContainer = document.getElementById("kasten-container");
 var lastClass = '';
 
@@ -43,7 +45,7 @@ function updateBoxClass(schoolClass) {
     </div>\
   ';
 
-  boxContainer.innerHTML+=box;
+  boxContainer.appendChild(createElement(box));
 }
 
 function updateBoxDate(date) {
@@ -53,7 +55,17 @@ function updateBoxDate(date) {
     </div>\
   ';
 
-  boxContainer.innerHTML+=box;
+  var element = createElement(box);
+  boxContainer.appendChild(element);
+  dateBoxes.push(element);
+
+  return element;
+}
+
+function createElement(html) {
+  var e = document.createElement('span');
+  e.innerHTML = html;
+  return e;
 }
 
 function classShouldBeShown(schoolClass) {

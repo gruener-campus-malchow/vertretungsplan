@@ -22,7 +22,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 
     var httpreq = new XMLHttpRequest();
 
-    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?cert=" + parameters["cert"], true);
+    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?dev=wanto&cert=" + parameters["cert"], true);
     httpreq.onload = function(e) {
         if (httpreq.readyState === 4) {
             if (httpreq.status === 200) {
@@ -79,18 +79,12 @@ function updatePlan(plan) {
 
 function updateClasses(plan) {
     var noClass = ['Informationen', 'Tag', 'Time'];
-    
+
     for (var i = 0; i < plan.length; i++) {
       var day = plan[i];
 
       if(plan.length>1) {
-        if(i !== 0) {
-          updateBoxDate(day['Tag']);
-        }
-      }
-
-      if(i===0) {
-        setDateText(day['Tag']);
+        var dateBox = updateBoxDate(day['Tag']);
       }
 
       var classNames = [];

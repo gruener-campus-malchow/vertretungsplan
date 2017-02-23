@@ -20,13 +20,21 @@ function scroll() {
 function scrollToTop() {
   $('html,body').stop().animate({
     scrollTop: 0
-  });
+  }, finishedScrollingToTop);
 }
 
 function scrollDown() {
   $('html,body').stop().animate({
     scrollTop: '+=' + scrollDistance
-  });
+  }, finishedScrollingDownOnce);
+}
+
+function finishedScrollingToTop() {
+  setDateText('');
+}
+
+function finishedScrollingDownOnce() {
+  updateDateHeader();
 }
 
 function bottomReached() {
