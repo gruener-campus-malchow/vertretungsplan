@@ -11,16 +11,11 @@
     margin-top:100px;
 }
 .info-text {
-  font-size:1.3em;
-  float:left;
+  margin:0;
   padding:20px;
+  font-size:1.3em;
 }
 .header-img {
   height:100px;
   float:right;
-}
-.date-text {
-  font-size:1.3em;
-  float:right;
-  padding:20px;
 }
