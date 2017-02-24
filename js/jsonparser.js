@@ -62,7 +62,9 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 }
 
 function finishedParsing() {
-  startScrolling();
+  if(parameters['user'] === 'foyer') {
+    startScrolling();
+  }
 }
 
 function noPlanOnline(json) {
