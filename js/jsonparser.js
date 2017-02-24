@@ -71,6 +71,7 @@ function getUrlArguments() {
   var cert = parameters["cert"];
   var dev = parameters["dev"];
   var klasse = parameters["klasse"];
+  var user = parameters["user"];
 
   var arguments = "?cert=" + cert;
   if(dev) {
@@ -78,6 +79,9 @@ function getUrlArguments() {
   }
   if(klasse) {
     arguments+="&klasse=" + klasse;
+  }
+  if(user) {
+    arguments+="&user=" + user;
   }
 
   return arguments;
