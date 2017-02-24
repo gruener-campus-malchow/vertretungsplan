@@ -1,3 +1,6 @@
+var urlIndexhtml = "index.html";
+var urlPlanhtml = "plan.html";
+
 var parameters = {};
 var infos = {};
 
@@ -22,8 +25,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 
     var httpreq = new XMLHttpRequest();
 
-    httpreq.open("GET", "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php?cert="
-     + parameters["cert"] + "&dev=" + parameters["dev"], true);
+    httpreq.open("GET", getApiUrl(), true);
 
     httpreq.onload = function(e) {
         if (httpreq.readyState === 4) {
@@ -46,7 +48,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
                 hideById('plan');
                 showById('wrong-pswd');
 
-                redirect("index.html", 2000);
+                redirect(urlIndexhtml, 2000);
               }
             } else {
                 console.error(httpreq.statusText);
@@ -61,9 +63,35 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
 
 }
 
+function getApiUrl() {
+  return "http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php" + getUrlArguments();
+}
+
+function getUrlArguments() {
+  var cert = parameters["cert"];
+  var dev = parameters["dev"];
+  var klasse = parameters["klasse"];
+  var user = parameters["user"];
+
+  var arguments = "?cert=" + cert;
+  if(dev) {
+    arguments+="&dev=" + dev;
+  }
+  if(klasse) {
+    arguments+="&klasse=" + klasse;
+  }
+  if(user) {
+    arguments+="&user=" + user;
+  }
+
+  return arguments;
+}
+
 function finishedParsing() {
   if(parameters['user'] === 'foyer') {
     startScrolling();
+  } else {
+    addClassNamesToDropdown();
   }
 }
 

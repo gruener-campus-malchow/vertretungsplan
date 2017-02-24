@@ -30,6 +30,11 @@
             <div class="time">
                 <div id="hours"></div>:<div id="minutes"></div>
             </div>
+              <label id='dropdown-label'>Klasse:
+                <select name="klassendropdown" onchange="dropdownChanged()" id="klassendropdown">
+                  <option>Alle</option>
+                </select>
+              </label>
             <a href="http://gruener-campus-malchow.de/" target="_blank"><img class="header-img" src="img/logo.gif" draggable="false" /></a>
         </div>
         <div class="header-info" id="header-info">
@@ -45,6 +50,7 @@
     <script type="text/javascript" src="js/style.js"></script>
     <script type="text/javascript" src="js/jsonparser.js"></script>
     <script type="text/javascript" src="js/scroll.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
 </body>
 
 </html>

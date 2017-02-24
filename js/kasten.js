@@ -1,7 +1,12 @@
 var boxContainer = document.getElementById("kasten-container");
 var lastClass = '';
+var allClassNames = [];
 
 function updateBox(klasse, raum, fach, stunde, hinweis, art) {
+    if(!allClassNames.includes(klasse)) {
+      allClassNames.push(klasse);
+    }
+
     if(!classShouldBeShown(klasse)) {
       return;
     }
