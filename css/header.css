@@ -19,3 +19,11 @@
   height:100px;
   float:right;
 }
+.dropdown-label {
+  font-size:1.5em;
+  line-height:100px;
+  margin-left:25px;
+}
+.klassendropdown {
+  font-size:.9em;
+}
