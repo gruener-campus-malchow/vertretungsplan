@@ -117,32 +117,13 @@ function updateClasses(plan) {
 
       updateBoxDate(day['Tag']);
 
-      var classNames = [];
       for (var className in day) {
           if (day.hasOwnProperty(className)) {
               if (!noClass.includes(className)) {
-                  classNames.push(className);
+				  var schoolClass = day[className];
+				  updateClass(className, schoolClass);
               }
           }
-      }
-      // klassenNamen sortieren
-      var numberPattern = new RegExp("^\\d+");
-      classNames.sort(function (s1, s2) {
-          var ret = parseInt(numberPattern.exec(s1)) - parseInt(numberPattern.exec(s2));
-          if (ret != 0) {
-              return ret;
-          } else if (s1 < s2) {
-              return -1;
-          } else if (s1 > s2) {
-              return 1;
-          }
-          return 0;
-          });
-      // update
-      for (var k = 0; k < classNames.length; k += 1) {
-          var className = classNames[k];
-          var schoolClass = day[className];
-          updateClass(className, schoolClass);
       }
 
     }
