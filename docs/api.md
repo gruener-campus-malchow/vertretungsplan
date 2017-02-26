@@ -4,7 +4,7 @@ Diese ist erreichbar unter der URL http://fbi.gruener-campus-malchow.de/cis/pupi
 ("Passwort" in der URL muss mit dem Passwort ausgetauscht werden.)
 In der Datei "jsonparser.js" in der Funktion "updateVertretungsplan()" wird eine HTTP-Request an die PupilplanAPI gesendet.
 Bei Erfolg kommt eine .json-Datei zurück, die der Funktion "updatePlan()" übergeben wird. Hier werden alle Daten aus der Datei ausgewertet.
-Das json sollte alle Klassen nach Alphabet und nach der Zahlenfolge sortiert beinhalten. Das heißt, "7a" würde vor "7b" stehen und "8a" kommt nach "7b" (Falls das json irgendwann nicht mehr sortiert sein sollte, kann die Sortier-Funktion aus Issue #100 implementiert werden).
+Das json sollte alle Klassen nach Alphabet und nach der Zahlenfolge sortiert beinhalten. Das heißt, "7a" würde vor "7b" stehen und "8a" kommt nach "7b" (Falls das json irgendwann nicht mehr sortiert sein sollte, kann die Funktion sortClassNames(classNames) verwendet werden).
 Ein anonymisiertes Beispiel sieht so aus:
 
 ```
