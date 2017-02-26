@@ -91,7 +91,8 @@ function finishedParsing() {
   if(parameters['user'] === 'foyer') {
     startScrolling();
   } else {
-    addClassNamesToDropdown();
+    allClassNames = sortClassNames(allClassNames);
+    addClassNamesToDropdown(allClassNames);
   }
 }
 
