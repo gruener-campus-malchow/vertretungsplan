@@ -3,7 +3,7 @@ var lastClass = '';
 var allClassNames = [];
 
 function updateBox(klasse, raum, fach, stunde, hinweis, art) {
-    if(!allClassNames.includes(klasse)) {
+    if(allClassNames.indexOf(klasse) === -1) {
       allClassNames.push(klasse);
     }
 
@@ -14,7 +14,7 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
     checkIfNewClass(klasse);
 
     var box = '<div class="kasten';
-          if (art.startsWith('Ausfall')) {
+          if (art.indexOf('Ausfall') !== -1) {
             box+=' ausfall';
           }
         box+='">                    \

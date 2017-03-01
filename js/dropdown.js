@@ -19,7 +19,7 @@ function addClassNamesToDropdown(classNames) {
     getDropdown().options.add(option);
   }
 
-  if (classNames.includes(parameters['klasse'])) {
+  if (classNames.indexOf(parameters['klasse']) >= 0) {
     getDropdown().value=parameters['klasse'];
   }
 }
