@@ -119,9 +119,9 @@ function updateClasses(plan) {
 
       for (var className in day) {
           if (day.hasOwnProperty(className)) {
-              if (!noClass.includes(className)) {
-				  var schoolClass = day[className];
-				  updateClass(className, schoolClass);
+              if (noClass.indexOf(className) === -1) {
+				        var schoolClass = day[className];
+				        updateClass(className, schoolClass);
               }
           }
       }
