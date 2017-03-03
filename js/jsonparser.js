@@ -2,7 +2,6 @@ var urlIndexhtml = "index.html";
 var urlPlanhtml = "plan.html";
 
 var parameters = {};
-var infos = {};
 
 /**
   reads parameters in URL and adds them to the parameters map
