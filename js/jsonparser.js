@@ -46,9 +46,8 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
                 }
               } catch(err) {//wrong password
                 hideById('plan');
-                showById('wrong-pswd');
 
-                redirect(urlIndexhtml, 2000);
+                redirect(urlIndexhtml + '?wrongpw=true', 0);
               }
             } else {
                 console.error(httpreq.statusText);
