@@ -39,3 +39,8 @@ p {
   font-size:1.2em;
   font-family:Arial;
 }
+
+.wrong-pw {
+  color:red;
+  font-size:1.8em;
+}
