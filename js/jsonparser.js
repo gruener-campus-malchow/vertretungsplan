@@ -186,8 +186,14 @@ function updateInfo(plan) {
 
   for (var i = 0; i < plan.length; i++) {
     var day = plan[i];
+    var date = day['Tag'];
     var informations = day['Informationen'];
     if (informations!==undefined&&informations!=='') {
+
+      if (i > 0) {
+        text += '\n';
+      }
+      text += date + '\n';
 
       for (var j = 0; j < informations.length; j++) {
         var info = day['Informationen'][j];
