@@ -176,19 +176,26 @@ function isNewEntry(eintrag) {
     return !isAllSpace(eintrag["Art"]);
 }
 
+//https://stackoverflow.com/questions/784539/how-do-i-replace-all-line-breaks-in-a-string-with-br-tags
+function removeLineBreaks(string) {
+  return string.replace(/\r?\n|\r/g, "");
+}
+
 function updateInfo(plan) {
+  var text = '';
+
   for (var i = 0; i < plan.length; i++) {
     var day = plan[i];
     var informations = day['Informationen'];
-    var text = '';
     if (informations!==undefined&&informations!=='') {
 
       for (var j = 0; j < informations.length; j++) {
         var info = day['Informationen'][j];
+        info = removeLineBreaks(info);
         text += info;
 
         if(j < informations.length-1) {
-          text+='\n';
+          text+=', ';
         }
       }
 
@@ -196,10 +203,8 @@ function updateInfo(plan) {
       hideInfoText();
     }
 
-    infos[day['Tag']]=text;
+    setInfoText(text);
   }
-
-  setInfoText(infos[plan[0]['Tag']]); //information of first day
 }
 
 setParametersFromURL();
