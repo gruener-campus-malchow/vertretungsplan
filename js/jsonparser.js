@@ -2,7 +2,6 @@ var urlIndexhtml = "index.html";
 var urlPlanhtml = "plan.html";
 
 var parameters = {};
-var infos = {};
 
 /**
   reads parameters in URL and adds them to the parameters map
@@ -176,19 +175,32 @@ function isNewEntry(eintrag) {
     return !isAllSpace(eintrag["Art"]);
 }
 
+//https://stackoverflow.com/questions/784539/how-do-i-replace-all-line-breaks-in-a-string-with-br-tags
+function removeLineBreaks(string) {
+  return string.replace(/\r?\n|\r/g, "");
+}
+
 function updateInfo(plan) {
+  var text = '';
+
   for (var i = 0; i < plan.length; i++) {
     var day = plan[i];
+    var date = day['Tag'];
     var informations = day['Informationen'];
-    var text = '';
     if (informations!==undefined&&informations!=='') {
+
+      if (i > 0) {
+        text += '\n';
+      }
+      text += date + '\n';
 
       for (var j = 0; j < informations.length; j++) {
         var info = day['Informationen'][j];
+        info = removeLineBreaks(info);
         text += info;
 
         if(j < informations.length-1) {
-          text+='\n';
+          text+=', ';
         }
       }
 
@@ -196,10 +208,8 @@ function updateInfo(plan) {
       hideInfoText();
     }
 
-    infos[day['Tag']]=text;
+    setInfoText(text);
   }
-
-  setInfoText(infos[plan[0]['Tag']]); //information of first day
 }
 
 setParametersFromURL();
