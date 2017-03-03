@@ -1,7 +1,7 @@
 var urlIndexhtml = "index.html";
 var urlPlanhtml = "plan.html";
 
-var infos = {};
+var parameters = {};
 
 function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
     /*json = {"Tag":"20.1.2017 Freitag","Time":"2017-01-20","Informationen":["Das sind Test-Informationen."],"7b":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"7a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"9a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}}};
@@ -161,19 +161,32 @@ function isNewEntry(eintrag) {
     return !isAllSpace(eintrag["Art"]);
 }
 
+//https://stackoverflow.com/questions/784539/how-do-i-replace-all-line-breaks-in-a-string-with-br-tags
+function removeLineBreaks(string) {
+  return string.replace(/\r?\n|\r/g, "");
+}
+
 function updateInfo(plan) {
+  var text = '';
+
   for (var i = 0; i < plan.length; i++) {
     var day = plan[i];
+    var date = day['Tag'];
     var informations = day['Informationen'];
-    var text = '';
     if (informations!==undefined&&informations!=='') {
+
+      if (i > 0) {
+        text += '\n';
+      }
+      text += date + '\n';
 
       for (var j = 0; j < informations.length; j++) {
         var info = day['Informationen'][j];
+        info = removeLineBreaks(info);
         text += info;
 
         if(j < informations.length-1) {
-          text+='\n';
+          text+=', ';
         }
       }
 
@@ -181,10 +194,8 @@ function updateInfo(plan) {
       hideInfoText();
     }
 
-    infos[day['Tag']]=text;
+    setInfoText(text);
   }
-
-  setInfoText(infos[plan[0]['Tag']]); //information of first day
 }
 
 updateVertretungsplan();
