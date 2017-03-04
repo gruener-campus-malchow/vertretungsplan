@@ -1,8 +1,6 @@
 var urlIndexhtml = "index.html";
 var urlPlanhtml = "plan.html";
 
-var parameters = {};
-
 function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
     /*json = {"Tag":"20.1.2017 Freitag","Time":"2017-01-20","Informationen":["Das sind Test-Informationen."],"7b":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"7a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}},"9a":{"1":{"Stunde":"1 - 2","Fach":"DEU","Raum":"3.309","LehrerIn":"___(statt ___)","Hinweis":"\u00a0","Art":"Vertretung"},"2":{"Stunde":"3 - 4","Fach":"MA","Raum":"3.214","LehrerIn":"___","Hinweis":"\u00a0","Art":"Vertretung"},"3":{"Stunde":"5","Fach":"EN","Raum":"3.202","LehrerIn":"___","Hinweis":"\u00a0","Art":"Ausfall"}}};
     updatePlan(json);
@@ -20,6 +18,12 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
                 var responseJSON = JSON.parse(httpreq.responseText);
                 console.log(responseJSON);
 
+                if (isPasswordWrong(responseJSON)) {
+                  hideById('plan');
+
+                  redirect(urlIndexhtml + '?wrongpw=true', 0);
+                }
+
                 if(noPlanOnline(responseJSON)) {
                   showById('kein-plan');
                 } else {
@@ -31,9 +35,7 @@ function updateVertretungsplan() { //http://stackoverflow.com/a/22790025
                   finishedParsing();
                 }
               } catch(err) {//wrong password
-                hideById('plan');
-
-                redirect(urlIndexhtml + '?wrongpw=true', 0);
+                console.error(err);
               }
             } else {
                 console.error(httpreq.statusText);
@@ -79,6 +81,10 @@ function finishedParsing() {
     allClassNames = sortClassNames(allClassNames);
     addClassNamesToDropdown(allClassNames);
   }
+}
+
+function isPasswordWrong(json) {
+  return json === false;
 }
 
 function noPlanOnline(json) {
