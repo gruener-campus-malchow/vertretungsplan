@@ -1,12 +1,12 @@
-if (parameters['user']==='foyer') {
+if (parameters['user'] === 'foyer') {
   hideById('dropdown-label');
 }
 
 function dropdownChanged() {
-  if(getDropdown().value !== "Alle") {
-    parameters["klasse"] = getDropdown().value;
+  if (getDropdown().value !== 'Alle') {
+    parameters['klasse'] = getDropdown().value;
   } else {
-    parameters["klasse"] = "";
+    parameters['klasse'] = '';
   }
   redirect(urlPlanhtml + getUrlArguments(), 0);
 }
@@ -20,24 +20,25 @@ function addClassNamesToDropdown(classNames) {
   }
 
   if (classNames.indexOf(parameters['klasse']) >= 0) {
-    getDropdown().value=parameters['klasse'];
+    getDropdown().value = parameters['klasse'];
   }
 }
 
 function sortClassNames(classNames) {
-  var numberPattern = new RegExp("^\\d+");
+  var numberPattern = new RegExp('^\\d+');
 
-  classNames.sort(function (s1, s2) {
-      var ret = parseInt(numberPattern.exec(s1)) - parseInt(numberPattern.exec(s2));
-      if (ret != 0) {
-          return ret;
-      } else if (s1 < s2) {
-          return -1;
-      } else if (s1 > s2) {
-          return 1;
-      }
-      return 0;
-      });
+  classNames.sort(function(s1, s2) {
+    var ret = parseInt(numberPattern.exec(s1)) -
+      parseInt(numberPattern.exec(s2));
+    if (ret != 0) {
+      return ret;
+    } else if (s1 < s2) {
+      return -1;
+    } else if (s1 > s2) {
+      return 1;
+    }
+    return 0;
+  });
 
   return classNames;
 }
