@@ -10,7 +10,7 @@ function updateVertretungsplan() {
 
   var httpreq = new XMLHttpRequest();
 
-  httpreq.open('GET', getApiUrl(), true);
+  httpreq.open('GET', getApiUrl() + getUrlArguments(), true);
 
   httpreq.onload = function(e) {
     if (httpRequestReady(httpreq)) {
@@ -35,7 +35,6 @@ function updateVertretungsplan() {
           finishedParsing();
         }
       } catch (err) {
-        //wrong password
         console.error(err);
       }
     } else {
@@ -58,8 +57,7 @@ function httpRequestReady(httpreq) {
 }
 
 function getApiUrl() {
-  return 'http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php' +
-    getUrlArguments();
+  return 'http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php';
 }
 
 function getUrlArguments() {
