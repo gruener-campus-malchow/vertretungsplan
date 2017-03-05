@@ -13,35 +13,33 @@ function updateVertretungsplan() {
   httpreq.open('GET', getApiUrl(), true);
 
   httpreq.onload = function(e) {
-    if (httpreq.readyState === 4) {
-      if (httpreq.status === 200) {
-        try {
-          var responseJSON = JSON.parse(httpreq.responseText);
-          console.log(responseJSON);
+    if (httpRequestReady(httpreq)) {
+      try {
+        var responseJSON = JSON.parse(httpreq.responseText);
+        console.log(responseJSON);
 
-          if (isPasswordWrong(responseJSON)) {
-            hideById('plan');
+        if (isPasswordWrong(responseJSON)) {
+          hideById('plan');
 
-            redirect(urlIndexhtml + '?wrongpw=true', 0);
-          }
-
-          if (noPlanOnline(responseJSON)) {
-            showById('kein-plan');
-          } else {
-            hideById('wrong-pswd');
-            //plan has to be set visible before calling updatePlan() because
-            //calculating the correct offset for the plan wouldn't work otherwise
-            showById('plan');
-            updatePlan(responseJSON);
-            finishedParsing();
-          }
-        } catch (err) {
-          //wrong password
-          console.error(err);
+          redirect(urlIndexhtml + '?wrongpw=true', 0);
         }
-      } else {
-        console.error(httpreq.statusText);
+
+        if (noPlanOnline(responseJSON)) {
+          showById('kein-plan');
+        } else {
+          hideById('wrong-pswd');
+          //plan has to be set visible before calling updatePlan() because
+          //calculating the correct offset for the plan wouldn't work otherwise
+          showById('plan');
+          updatePlan(responseJSON);
+          finishedParsing();
+        }
+      } catch (err) {
+        //wrong password
+        console.error(err);
       }
+    } else {
+      console.error(httpreq.statusText);
     }
   };
   httpreq.onerror = function(e) {
@@ -49,6 +47,14 @@ function updateVertretungsplan() {
   };
   httpreq.send(null);
   return httpreq.responseText;
+}
+
+function httpRequestReady(httpreq) {
+  //check if request completed and if request was successful
+  if (httpreq.readyState === 4 && httpreq.status === 200) {
+    return true;
+  }
+  return false;
 }
 
 function getApiUrl() {
