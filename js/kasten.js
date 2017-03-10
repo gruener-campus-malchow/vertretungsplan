@@ -24,10 +24,12 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
     fach +
     '                  \
                 </div>                                                           \
-                <div class="kasten-raum">                                        \
-                    ' +
-    raum +
-    '                \
+                <div class="kasten-raum">';
+                  if (raum.indexOf('---') === -1) {
+                      box += raum;
+                  }
+
+  box +='                \
                 </div>                                                           \
                 <div class="kasten-stunde">                                      \
                     ' +
