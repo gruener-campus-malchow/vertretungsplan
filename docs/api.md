@@ -32,6 +32,5 @@ Test
 
 Die API hat eine test-Schnittstelle:
 
-- `cert=00000000`
-- `user=test&passphrase0000`
+- `user=test&passphrase=0000&dev=wanto`
 
