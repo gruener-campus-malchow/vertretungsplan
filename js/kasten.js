@@ -37,7 +37,9 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
     '             \
                 </div>                                                \
             </div>                                                          \
-                                                          \
+            <div class="middle">                                         \
+              '+ hinweis +'                                                \
+            </div>                                              \
             <div class="bottom">                          \
               <div class="kasten-hinweis">                                     \
                   ' +
