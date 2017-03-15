@@ -26,3 +26,11 @@ Ein anonymisiertes Beispiel sieht so aus:
   
 }
 ```
+
+Test
+----
+
+Die API hat eine test-Schnittstelle:
+
+- `user=test&passphrase=0000&dev=wanto`
+
