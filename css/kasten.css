@@ -11,14 +11,18 @@
     margin-bottom: 4px;
     display:inline-block;
     background-color:#E26D5C;
+    vertical-align:top;
 }
 .top {
   display:inline-block;
   width:100%;
   height:30px;
 }
+.middle {
+  max-width:250px;
+}
 .bottom {
-  
+
 }
 .kasten-fach {
     float:left;
