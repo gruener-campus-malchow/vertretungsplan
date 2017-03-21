@@ -45,6 +45,8 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
               <div class="kasten-art ';
               if (art.indexOf('Ausfall') !== -1) {
                 box += ' ausfall';
+              } else if (art.indexOf('Vertretung') !== -1) {
+                box += ' vertretung';
               }
               box += '">                                     \
                   ' +
