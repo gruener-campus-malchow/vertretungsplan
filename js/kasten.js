@@ -85,9 +85,15 @@ function updateBoxDate(date) {
 }
 
 function classShouldBeShown(schoolClass) {
-  return parameters['klasse'] == undefined ||
+  var klasseShouldBeShown = parameters['klasse'] == undefined ||
     parameters['klasse'] == '' ||
     parameters['klasse'] === schoolClass;
+
+  var klassenstufeShouldBeShown = parameters['klassenstufe'] == undefined ||
+    parameters['klassenstufe'] == '' ||
+    schoolClass.includes(parameters['klassenstufe']);
+
+  return (klasseShouldBeShown && klassenstufeShouldBeShown);
 }
 
 function checkIfNewClass(schoolClass) {
