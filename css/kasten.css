@@ -56,6 +56,7 @@
 .klasse {
   font-size:2em;
   background-color:#4CAF50;
+  box-shadow: 1px 1px 3px grey;
 }
 .klasse p {
   margin:0;
