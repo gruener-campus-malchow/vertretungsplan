@@ -14,9 +14,6 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
   checkIfNewClass(klasse);
 
   var box = '<div class="kasten';
-  if (art.indexOf('Ausfall') !== -1) {
-    box += ' ausfall';
-  }
   box += '">                    \
             <div class="top">                                                           \
                 <div class="kasten-fach">                                        \
@@ -36,12 +33,22 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
     stunde +
     '             \
                 </div>                                                \
-            </div>                                                          \
-            <div class="middle">                                         \
-              '+ hinweis +'                                                \
-            </div>                                              \
+            </div>';
+            if (hinweis.length > 2) {
+              box += '\
+              <div class="middle">                                         \
+                '+ hinweis +'                                                \
+              </div>';
+            }
+            box += '\
             <div class="bottom">                          \
-              <div class="kasten-hinweis">                                     \
+              <div class="kasten-art ';
+              if (art.indexOf('Ausfall') !== -1) {
+                box += ' ausfall';
+              } else if (art.indexOf('Vertretung') !== -1) {
+                box += ' vertretung';
+              }
+              box += '">                                     \
                   ' +
     art +
     '           \

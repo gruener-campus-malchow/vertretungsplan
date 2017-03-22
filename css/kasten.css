@@ -10,8 +10,11 @@
     margin-right:-4px;
     margin-bottom: 4px;
     display:inline-block;
-    background-color:#E26D5C;
     vertical-align:top;
+    padding:2px;
+    /*box-shadow:1px 1px 5px grey;*/
+    border:1px solid grey;
+    background-color:#FFF8E1;
 }
 .top {
   display:inline-block;
@@ -27,28 +30,16 @@
 .kasten-fach {
     float:left;
     /*background-color:#999999;*/
-    background-color:#456789;
     font-size:1.2em;
     padding:5px;
-}
-.kasten-fach-text {
-    color:#ffffff;
-    text-align:center;
-    font-weight:700;
-    font-size:5em;
-    line-height:-2em;
+    color:#1B5E20;
 }
 .kasten-stunde {
     float:right;
     /*background-color:#888888;*/
-    background-color:#456789;
     font-size:1.2em;
     padding:5px;
-}
-.kasten-stunde-text {
-    color:#ffffff;
-    text-align:center;
-    font-weight:700;
+    color:#1B5E20;
 }
 .kasten-raum {
     float:left;
@@ -57,14 +48,15 @@
     margin-right:2px;
     /*background-color:#666666;*/
 }
-.kasten-hinweis {
+.kasten-art {
     float:left;
-    margin:5px;
+    width:100%;
     /*background-color:#777777;*/
 }
 .klasse {
   font-size:2em;
-  background-color:green;
+  background-color:#4CAF50;
+  box-shadow: 1px 1px 3px grey;
 }
 .klasse p {
   margin:0;
@@ -72,11 +64,14 @@
   padding:5px;
 }
 .ausfall {
-  background-color:red;
+  color:#F44336;
+}
+.vertretung {
+  color:#3F51B5;
 }
 .date {
-  background-color:yellow;
+  background-color:#FFC107;
 }
 .date p {
-  margin:15px;
+  margin:12px;
 }
