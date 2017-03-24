@@ -22,10 +22,21 @@
   height:100px;
   float:right;
 }
-@media (max-width:500px) {
-  .header-img {
-    display:none;
-  }
+.info-button {
+  float:right;
+  font-size:1.5em;
+  font-weight:900;
+  width:30px;
+  height:30px;
+  text-align:center;
+  margin-right:20px;
+  margin-top:10px;
+  border:2px solid black;
+  border-radius:30px;
+  box-shadow:1px 1px 4px black;
+  color:#F44336;
+  background-color:white;
+  display:none;
 }
 .dropdown-label {
   font-size:1.5em;
@@ -34,4 +45,22 @@
 }
 .klassendropdown {
   font-size:.9em;
+}
+@media (max-width:600px) {
+  .header {
+    height:50px;
+  }
+  .dropdown-label {
+    font-size:1.2em;
+    line-height:50px;
+  }
+  .header-img {
+    display:none;
+  }
+  .header-info {
+    display:none;
+  }
+  .info-button {
+    display:inline;
+  }
 }

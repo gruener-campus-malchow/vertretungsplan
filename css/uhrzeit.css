@@ -4,6 +4,12 @@
   line-height:100px;
   margin-left:20px;
 }
+@media (max-width:600px) {
+  .time {
+    font-size:1.5em;
+    line-height:50px;
+  }
+}
 #hours {
     display: inline;
 }
