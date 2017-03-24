@@ -1,6 +1,8 @@
 var urlIndexhtml = 'index.html';
 var urlPlanhtml = 'plan.html';
 
+var json;
+
 //http://stackoverflow.com/a/22790025
 function updateVertretungsplan() {
   var httpreq = new XMLHttpRequest();
@@ -26,6 +28,7 @@ function updateVertretungsplan() {
           //plan has to be set visible before calling updatePlan() because
           //calculating the correct offset for the plan wouldn't work otherwise
           showById('plan');
+          json = responseJSON;
           updatePlan(responseJSON);
           finishedParsing();
         }
@@ -102,7 +105,7 @@ function redirect(url, delay) {
 }
 
 function updatePlan(plan) {
-  updateInfo(plan);
+  setInfoText(getInfoText());
   updatePlanPaddingTop(); //style.js
   updateClasses(plan);
 }
@@ -181,13 +184,14 @@ function removeLineBreaks(string) {
   return string.replace(/\r?\n|\r/g, '');
 }
 
-function updateInfo(plan) {
+function getInfoText() {
   var text = '';
 
-  for (var i = 0; i < plan.length; i++) {
-    var day = plan[i];
+  for (var i = 0; i < json.length; i++) {
+    var day = json[i];
     var date = day['Tag'];
     var informations = day['Informationen'];
+
     if (informations !== undefined && informations !== '') {
       if (i > 0) {
         text += '\n';
@@ -203,12 +207,11 @@ function updateInfo(plan) {
           text += ', ';
         }
       }
-    } else {
-      hideInfoText();
     }
 
-    setInfoText(text);
   }
+
+  return text;
 }
 
 updateVertretungsplan();
