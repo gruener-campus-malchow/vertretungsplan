@@ -13,8 +13,8 @@
     vertical-align:top;
     padding:2px;
     /*box-shadow:1px 1px 5px grey;*/
-    border:1px solid grey;
-    background-color:#FFF8E1;
+    border:1px solid var(--kasten-border-color);
+    background-color:var(--kasten-background-color);
 }
 .top {
   display:inline-block;
@@ -32,14 +32,14 @@
     /*background-color:#999999;*/
     font-size:1.2em;
     padding:5px;
-    color:#1B5E20;
+    color:var(--kasten-fach-text-color);
 }
 .kasten-stunde {
     float:right;
     /*background-color:#888888;*/
     font-size:1.2em;
     padding:5px;
-    color:#1B5E20;
+    color:var(--kasten-stunde-text-color);
 }
 .kasten-raum {
     float:left;
@@ -47,6 +47,7 @@
     margin-left:2px;
     margin-right:2px;
     /*background-color:#666666;*/
+    color:var(--kasten-raum-text-color);
 }
 .kasten-art {
     float:left;
@@ -55,8 +56,8 @@
 }
 .klasse {
   font-size:2em;
-  background-color:#4CAF50;
-  box-shadow: 1px 1px 3px grey;
+  background-color:var(--kasten-klasse-background-color);
+  box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
 }
 .klasse p {
   margin:0;
@@ -64,13 +65,13 @@
   padding:5px;
 }
 .ausfall {
-  color:#F44336;
+  color:var(--kasten-ausfall-text-color);
 }
 .vertretung {
-  color:#3F51B5;
+  color:var(--kasten-vertretung-text-color);
 }
 .date {
-  background-color:#FFC107;
+  background-color:var(--kasten-date-background-color);
 }
 .date p {
   margin:12px;
