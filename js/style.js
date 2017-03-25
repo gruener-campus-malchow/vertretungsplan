@@ -6,7 +6,13 @@ function updatePlanPaddingTop() {
 }
 
 function getHeaderHeight() {
-  return $("#header").height() + $("#header-info").height();
+  var height = $("#header").height();
+
+  if ($('#header-info').is(':visible')) {
+    height += $("#header-info").height();
+  }
+
+  return height;
 }
 
 function showById(id) {
