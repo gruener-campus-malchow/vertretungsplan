@@ -82,6 +82,8 @@ function finishedParsing() {
     allClassNames = sortClassNames(allClassNames);
     addClassNamesToDropdown(allClassNames);
   }
+
+  updatePlanPaddingTop();
 }
 
 function isPasswordWrong(json) {
