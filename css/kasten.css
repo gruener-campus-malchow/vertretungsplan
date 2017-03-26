@@ -56,7 +56,6 @@
 }
 .klasse {
   font-size:2em;
-  background-color:var(--kasten-klasse-background-color);
   box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
 }
 .klasse p {
@@ -72,7 +71,58 @@
 }
 .date {
   background-color:var(--kasten-date-background-color);
+  color:white;
 }
 .date p {
   margin:12px;
+}
+
+.no-grade {
+  background-color:var(--no-grade-color);
+}
+.grade-seven {
+  background-color:var(--grade-seven-color);
+}
+.grade-eight {
+  background-color:var(--grade-eight-color);
+}
+.grade-nine {
+  background-color:var(--grade-nine-color);
+}
+.grade-ten {
+  background-color:var(--grade-ten-color);
+}
+.grade-eleven {
+  background-color:var(--grade-eleven-color);
+}
+.grade-twelve {
+  background-color:var(--grade-twelve-color);
+}
+.grade-thirteen {
+  background-color:var(--grade-thirteen-color);
+}
+
+.no-grade-border {
+  border-color:var(--no-grade-color);
+}
+.grade-seven-border {
+  border-color:var(--grade-seven-color);
+}
+.grade-eight-border {
+  border-color:var(--grade-eight-color);
+}
+.grade-nine-border {
+  border-color:var(--grade-nine-color);
+}
+.grade-ten-border {
+  border-color:var(--grade-ten-color);
+}
+.grade-eleven-border {
+  border-color:var(--grade-eleven-color);
+}
+.grade-twelve-border {
+  border-color:var(--grade-twelve-color);
+}
+.grade-thirteen-border {
+  border-color:var(--grade-thirteen-color);
 }

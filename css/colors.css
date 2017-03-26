@@ -1,11 +1,16 @@
 :root {
   --green:#4CAF50;
-  --dark-green:#1B5E20;
   --orange:#FFC107;
   --light-orange:#FFF8E1;
+  --light-blue:#2196F3;
+  --yellow:#FFEB3B;
+  --red:#F44336;
+  --light-green:#8BC34A;
+  --light-yellow:#FFF176;
+
+  --dark-green:#1B5E20;
   --black:black;
   --grey:grey;
-  --red:#F44336;
   --blue:#3F51B5;
 
   /* Header */
@@ -23,5 +28,15 @@
   --kasten-klasse-border-color:var(--kasten-border-color);
   --kasten-ausfall-text-color:var(--red);
   --kasten-vertretung-text-color:var(--blue);
-  --kasten-date-background-color:var(--orange);
+  --kasten-date-background-color:var(--grey);
+
+  /* Klassenstufen */
+  --no-grade-color:var(--grey);
+  --grade-seven-color:var(--green);
+  --grade-eight-color:var(--light-blue);
+  --grade-nine-color:var(--yellow);
+  --grade-ten-color:var(--red);
+  --grade-eleven-color:var(--blue);
+  --grade-twelve-color:var(--light-green);
+  --grade-thirteen-color:var(--light-yellow);
 }
