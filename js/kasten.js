@@ -13,7 +13,8 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
 
   checkIfNewClass(klasse);
 
-  var box = '<div class="kasten';
+  var box = '<div class="kasten ';
+  box += findBorderColorCssClassByGrade(klasse);
   box += '">                    \
             <div class="top">                                                           \
                 <div class="kasten-fach">                                        \
@@ -61,8 +62,9 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
 }
 
 function updateBoxClass(schoolClass) {
-  var box = '\
-    <div class="kasten klasse">\
+  var box = '<div class="kasten klasse ';
+    box += findBgColorCssClassByGrade(schoolClass);
+    box +='">\
       <p>' +
     schoolClass +
     '</p>\
@@ -70,6 +72,30 @@ function updateBoxClass(schoolClass) {
   ';
 
   boxContainer.innerHTML += box;
+}
+
+function findBorderColorCssClassByGrade(schoolClass) {
+  return findBgColorCssClassByGrade(schoolClass) + '-border';
+}
+
+function findBgColorCssClassByGrade(schoolClass) {
+  if (schoolClass.includes('7')) {
+    return 'grade-seven';
+  } else if (schoolClass.includes('8')) {
+    return 'grade-eight';
+  } else if (schoolClass.includes('9')) {
+    return 'grade-nine';
+  } else if (schoolClass.includes('10')) {
+    return 'grade-ten';
+  } else if (schoolClass.includes('11')) {
+    return 'grade-eleven';
+  } else if (schoolClass.includes('12')) {
+    return 'grade-twelve';
+  } else if (schoolClass.includes('13')) {
+    return 'grade-thirteen';
+  }
+
+  return 'no-grade';
 }
 
 function updateBoxDate(date) {
