@@ -27,9 +27,16 @@ function setInfoText(text) {
   if(text!==undefined&&text!=='') {
     showInfoText();
     document.getElementById('info-text').innerText=text;
+
+    setInfoButtonText(text);
   } else {
     hideInfoText();
   }
+}
+
+var infoButton = document.getElementById('info-button');
+function setInfoButtonText(text) {
+  infoButton.addEventListener('click', function() { alert(text); });
 }
 
 function hideInfoText() {

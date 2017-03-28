@@ -1,8 +1,6 @@
 var urlIndexhtml = 'index.html';
 var urlPlanhtml = 'plan.html';
 
-var json;
-
 //http://stackoverflow.com/a/22790025
 function updateVertretungsplan() {
   var httpreq = new XMLHttpRequest();
@@ -107,7 +105,7 @@ function redirect(url, delay) {
 }
 
 function updatePlan(plan) {
-  setInfoText(getInfoText());
+  updateInfo(plan);
   updatePlanPaddingTop(); //style.js
   updateClasses(plan);
 }
@@ -186,11 +184,11 @@ function removeLineBreaks(string) {
   return string.replace(/\r?\n|\r/g, '');
 }
 
-function getInfoText() {
+function updateInfo(plan) {
   var text = '';
 
-  for (var i = 0; i < json.length; i++) {
-    var day = json[i];
+  for (var i = 0; i < plan.length; i++) {
+    var day = plan[i];
     var date = day['Tag'];
     var informations = day['Informationen'];
 
@@ -213,7 +211,7 @@ function getInfoText() {
 
   }
 
-  return text;
+  setInfoText(text);
 }
 
 updateVertretungsplan();
