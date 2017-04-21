@@ -197,11 +197,13 @@ function updateInfo(plan) {
         text += '\n';
       }
       text += date + '\n';
+      updateInfoDateBox(date);
 
       for (var j = 0; j < informations.length; j++) {
         var info = day['Informationen'][j];
         info = removeLineBreaks(info);
         text += info;
+        updateInfoBox(info);
 
         if (j < informations.length - 1) {
           text += ', ';

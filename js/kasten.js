@@ -74,6 +74,19 @@ function updateBoxClass(schoolClass) {
   boxContainer.innerHTML += box;
 }
 
+var infoContainer = document.getElementById('info-container');
+function updateInfoDateBox(date) {
+  var box = '<div class="info-kasten info-date">'
+            + date +
+            '</div>';
+
+  infoContainer.innerHTML += box;
+}
+
+function updateInfoBox(info) {
+
+}
+
 function findBorderColorCssClassByGrade(schoolClass) {
   return findBgColorCssClassByGrade(schoolClass) + '-border';
 }
