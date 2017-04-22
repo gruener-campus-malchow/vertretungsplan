@@ -19,12 +19,16 @@
 .info-kasten {
   display:inline-block;
   border:1px solid var(--kasten-border-color);
+  max-width:300px;
   max-height:85px;
   height:85px;
   padding:5px;
+  overflow:hidden;
+  white-space:normal;
 }
 .info-date {
   line-height:85px;
+  color:var(--blue);
 }
 .top {
   display:inline-block;

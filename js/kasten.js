@@ -84,7 +84,11 @@ function updateInfoDateBox(date) {
 }
 
 function updateInfoBox(info) {
+  var box = '<div class="info-kasten">'
+            + info +
+            '</div>';
 
+  infoContainer.innerHTML += box;
 }
 
 function findBorderColorCssClassByGrade(schoolClass) {

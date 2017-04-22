@@ -202,11 +202,15 @@ function updateInfo(plan) {
       for (var j = 0; j < informations.length; j++) {
         var info = day['Informationen'][j];
         info = removeLineBreaks(info);
-        text += info;
-        updateInfoBox(info);
+        if (info) {
+          text += info;
+          updateInfoBox('Grüne Gruppe 7a das ist ein test ok sehr viel text lorem ipsum dolor sit amet');
+updateInfoBox('Grüne Gruppe 7a das ist ein test ok sehr viel text lorem ipsum dolor sit amet');
+updateInfoBox('Grüne Gruppe 7a das ist ein test ok sehr viel text lorem ipsum dolor sit amet');
 
-        if (j < informations.length - 1) {
-          text += ', ';
+          if (j < informations.length - 1) {
+            text += ', ';
+          }
         }
       }
     }
