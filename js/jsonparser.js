@@ -204,9 +204,7 @@ function updateInfo(plan) {
         info = removeLineBreaks(info);
         if (info) {
           text += info;
-          updateInfoBox('Grüne Gruppe 7a das ist ein test ok sehr viel text lorem ipsum dolor sit amet');
-updateInfoBox('Grüne Gruppe 7a das ist ein test ok sehr viel text lorem ipsum dolor sit amet');
-updateInfoBox('Grüne Gruppe 7a das ist ein test ok sehr viel text lorem ipsum dolor sit amet');
+          updateInfoBox(info);
 
           if (j < informations.length - 1) {
             text += ', ';
