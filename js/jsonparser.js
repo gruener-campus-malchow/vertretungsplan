@@ -218,4 +218,4 @@ function updateInfo(plan) {
   setInfoText(text);
 }
 
-updateVertretungsplan();
+$(document).ready(updateVertretungsplan);
