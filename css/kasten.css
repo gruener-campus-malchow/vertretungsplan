@@ -16,6 +16,19 @@
     border:1px solid var(--kasten-border-color);
     background-color:var(--kasten-background-color);
 }
+.info-kasten {
+  display:inline-block;
+  vertical-align:top;
+  border:1px solid var(--kasten-border-color);
+  max-width:300px;
+  max-height:85px;
+  padding:5px;
+  overflow:hidden;
+  white-space:normal;
+}
+.info-date {
+  color:var(--blue);
+}
 .top {
   display:inline-block;
   width:100%;
