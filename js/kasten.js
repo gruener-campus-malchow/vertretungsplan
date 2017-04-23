@@ -1,6 +1,13 @@
-var boxContainer = document.getElementById('kasten-container');
 var lastClass = '';
 var allClassNames = [];
+
+function getBoxContainer() {
+  return document.getElementById('kasten-container');
+}
+
+function getInfoContainer() {
+  return document.getElementById('info-container');
+}
 
 function updateBox(klasse, raum, fach, stunde, hinweis, art) {
   if (allClassNames.indexOf(klasse) === -1) {
@@ -53,7 +60,7 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
 
     box.appendChild(bottom);
 
-  boxContainer.appendChild(box);
+  getBoxContainer().appendChild(box);
 }
 
 function createDivWithClass(className) {
@@ -71,17 +78,15 @@ function updateBoxClass(schoolClass) {
   p.innerText = schoolClass;
   box.appendChild(p);
 
-  boxContainer.appendChild(box);
+  getBoxContainer().appendChild(box);
 }
 
-var infoContainer = document.getElementById('info-container');
-
 function updateInfoDateBox(date) {
-  infoContainer.appendChild(createInfoDateBox(date));
+  getInfoContainer().appendChild(createInfoDateBox(date));
 }
 
 function updateInfoBox(info) {
-  infoContainer.appendChild(createInfoBox(info));
+  getInfoContainer().appendChild(createInfoBox(info));
 }
 
 function createInfoBox(text) {
@@ -129,7 +134,7 @@ function updateBoxDate(date) {
   p.innerText = date;
   box.appendChild(p);
 
-  boxContainer.appendChild(box);
+  getBoxContainer().appendChild(box);
 }
 
 function createBox() {
