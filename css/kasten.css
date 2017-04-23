@@ -6,9 +6,7 @@
     z-index:-1;
 }
 .kasten {
-    margin-left:4px;
-    margin-right:-4px;
-    margin-bottom: 4px;
+    margin:2px;
     display:inline-block;
     vertical-align:top;
     padding:2px;
