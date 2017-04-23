@@ -75,20 +75,26 @@ function updateBoxClass(schoolClass) {
 }
 
 var infoContainer = document.getElementById('info-container');
-function updateInfoDateBox(date) {
-  var box = '<div class="info-kasten info-date">'
-            + date +
-            '</div>';
 
-  infoContainer.innerHTML += box;
+function updateInfoDateBox(date) {
+  infoContainer.appendChild(createInfoDateBox(date));
 }
 
 function updateInfoBox(info) {
-  var box = '<div class="info-kasten">'
-            + info +
-            '</div>';
+  infoContainer.appendChild(createInfoBox(info));
+}
 
-  infoContainer.innerHTML += box;
+function createInfoBox(text) {
+  var box = document.createElement('div');
+  box.classList.add('info-kasten');
+  box.innerText = text;
+  return box;
+}
+
+function createInfoDateBox(date) {
+  var box = createInfoBox(date);
+  box.classList.add('info-date');
+  return box;
 }
 
 function findBorderColorCssClassByGrade(schoolClass) {
