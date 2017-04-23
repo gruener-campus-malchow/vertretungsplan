@@ -1,6 +1,5 @@
 const SCROLL_PLAN_DELAY = 3000, SCROLL_INFO_DELAY = 3000;
 var intervalScrollPlan, intervalScrollInfo;
-var infoContainer = document.getElementById('info-container');
 
 function startScrolling() {
   intervalScrollPlan = setInterval(scrollPlan, SCROLL_PLAN_DELAY);
