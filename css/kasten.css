@@ -1,9 +1,13 @@
 .kasten-container {
-    width: auto;
-    height: auto;
+    width:auto;
+    height:80vh;
     position:relative;
     padding:10px;
-    z-index:-1;
+    overflow-y:auto;
+}
+#plan {
+  display:flex;
+  flex-direction:column;
 }
 .kasten {
     margin:2px;

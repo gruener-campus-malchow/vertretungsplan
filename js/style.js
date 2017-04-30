@@ -2,7 +2,7 @@ window.onresize = updatePlanPaddingTop;
 
 function updatePlanPaddingTop() {
   var plan = document.getElementById('kasten-container');
-  plan.style.paddingTop=getHeaderHeight() + 10 + "px";
+  plan.style.height = window.innerHeight - getHeaderHeight() - 15 + 'px';
 }
 
 function getHeaderHeight() {
