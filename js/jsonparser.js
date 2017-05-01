@@ -25,7 +25,7 @@ function updateVertretungsplan() {
           hideById('wrong-pswd');
           //plan has to be set visible before calling updatePlan() because
           //calculating the correct offset for the plan wouldn't work otherwise
-          showById('plan');
+          showById('header');
           json = responseJSON;
           updatePlan(responseJSON);
           finishedParsing();
