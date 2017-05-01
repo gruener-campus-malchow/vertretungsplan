@@ -1,13 +1,22 @@
+.plan-body {
+  display:flex;
+  flex-direction:row;
+}
+#left-side {
+  min-width:200px;
+  max-width:200px;
+  border-right:2px solid var(--green);
+  box-shadow:1px 0px 10px var(--header-shadow-color);
+}
+#info-text {
+  margin:10px;
+}
 .kasten-container {
     width:auto;
     height:80vh;
     position:relative;
     padding:10px;
     overflow-y:auto;
-}
-#plan {
-  display:flex;
-  flex-direction:column;
 }
 .kasten {
     margin:2px;
