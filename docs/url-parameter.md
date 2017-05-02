@@ -17,6 +17,10 @@ Parameter: `klasse=7a`
 
 Wird dieser Parameter angegeben, werden nur Vertretungsstunden für diese Klasse angezeigt. Wird er weggelassen, wird alles angezeigt.
 Er wird vom Klassen-Dropdown genutzt.
+## Bestimmte Klassenstufen anzeigen
+Parameter: `klassenstufe=8`
+
+Nur Vertretungsstunden für diese Klassenstufe werden angezeigt. Wird er weggelassen, wird alles angezeigt.
 ## Test Informationen
 Parameter: `dev=wanto`
 
