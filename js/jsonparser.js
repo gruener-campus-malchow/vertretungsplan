@@ -216,10 +216,9 @@ function updateInfo(plan) {
   }
 
   var infoFitsTop = true;
-  if (infoFitsTop) {
-    hideById('left-side');
-  } else {
+  if (!infoFitsTop) {
     hideById('header-info');
+    showById('left-side');
   }
 
   setInfoText(text);
