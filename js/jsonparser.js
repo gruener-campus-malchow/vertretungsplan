@@ -186,6 +186,7 @@ function removeLineBreaks(string) {
 
 function updateInfo(plan) {
   var text = '';
+  var isInfoAlreadyTooLong = false;
 
   for (var i = 0; i < plan.length; i++) {
     var day = plan[i];
@@ -206,6 +207,15 @@ function updateInfo(plan) {
           text += info;
           updateInfoBox(info);
 
+          if (!isInfoAlreadyTooLong) {
+            if (isInfoTooLong(info)) {
+              hideById('header-info');
+              showById('left-side');
+
+              isInfoAlreadyTooLong = true;
+            }
+          }
+
           if (j < informations.length - 1) {
             text += ', ';
           }
@@ -215,13 +225,15 @@ function updateInfo(plan) {
 
   }
 
-  var infoFitsTop = true;
-  if (!infoFitsTop) {
-    hideById('header-info');
-    showById('left-side');
+  setInfoText(text);
+}
+
+function isInfoTooLong(info) {
+  if (info.length > 187) { //187 characters fit into one box at the moment
+    return true;
   }
 
-  setInfoText(text);
+  return false;
 }
 
 $(document).ready(updateVertretungsplan);
