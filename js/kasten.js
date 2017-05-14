@@ -92,7 +92,9 @@ function updateInfoBox(info) {
 function createInfoBox(text) {
   var box = document.createElement('div');
   box.classList.add('info-kasten');
-  box.innerText = text;
+
+  addTextWithBRs(box, text);
+  
   return box;
 }
 

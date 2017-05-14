@@ -26,11 +26,23 @@ function hideById(id) {
 function setInfoText(text) {
   if(text!==undefined&&text!=='') {
     showInfoText();
-    document.getElementById('info-text').innerText=text;
 
+    addTextWithBRs(document.getElementById('info-text'), text);
+
+    text = text.replace(/;/g, ' ');
     setInfoButtonText(text);
   } else {
     hideInfoText();
+  }
+}
+
+function addTextWithBRs(e, text) {
+  var lines = text.split(';');
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+
+    e.innerText += line;
+    e.innerHTML += '<br>';
   }
 }
 
