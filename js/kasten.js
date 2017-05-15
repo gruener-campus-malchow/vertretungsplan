@@ -128,6 +128,7 @@ function findBgColorCssClassByGrade(schoolClass) {
   return 'no-grade';
 }
 
+var dateCounter = 0;
 function updateBoxDate(date) {
   var box = createBox();
   box.classList.add('date');
@@ -136,7 +137,12 @@ function updateBoxDate(date) {
   p.innerText = date;
   box.appendChild(p);
 
+  if (dateCounter > 0) {
+    getBoxContainer().appendChild(document.createElement('br'));
+  }
   getBoxContainer().appendChild(box);
+
+  dateCounter++;
 }
 
 function createBox() {
