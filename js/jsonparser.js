@@ -74,6 +74,8 @@ function getUrlArguments() {
   var dev = parameters['dev'];
   var klasse = parameters['klasse'];
   var user = parameters['user'];
+  var klassenstufe = parameters['klassenstufe'];
+  var size = parameters['size'];
 
   var args = '?cert=' + cert;
   if (dev) {
@@ -84,6 +86,12 @@ function getUrlArguments() {
   }
   if (user) {
     args += '&user=' + user;
+  }
+  if (klassenstufe) {
+    args += '&klassenstufe=' + klassenstufe;
+  }
+  if (size) {
+    args += '&size=' + size;
   }
 
   return args;
