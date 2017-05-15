@@ -105,9 +105,30 @@ function redirect(url, delay) {
 }
 
 function updatePlan(plan) {
+  adjustFontSize();
+
   updateInfo(plan);
   updatePlanPaddingTop(); //style.js
   updateClasses(plan);
+}
+
+function adjustFontSize() {
+  var size = getSizeParameter();
+}
+
+function getSizeParameter() {
+  var size = parameters['size'];
+  if (size === '1' || size === undefined || isNaN(size) || size === '') {
+    size = 1;
+  } else {
+    size = parseFloat(size);
+
+    if (size <= 0) {
+      size = 1;
+    }
+  }
+
+  return size;
 }
 
 function updateClasses(plan) {
