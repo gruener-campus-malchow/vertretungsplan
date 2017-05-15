@@ -27,16 +27,19 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
 
       var kastenFach = createDivWithClass('kasten-fach');
       kastenFach.innerText = fach;
+      kastenFach.style.fontSize = fontSizes['kasten-fach'] + 'em';
       top.appendChild(kastenFach);
 
       var kastenRaum = createDivWithClass('kasten-raum');
       if (raum.indexOf('---') === -1) {
         kastenRaum.innerText = raum;
       }
+      kastenRaum.style.fontSize = fontSizes['kasten-raum'] + 'em';
       top.appendChild(kastenRaum);
 
       var kastenStunde = createDivWithClass('kasten-stunde');
       kastenStunde.innerText = stunde;
+      kastenStunde.style.fontSize = fontSizes['kasten-stunde'] + 'em';
       top.appendChild(kastenStunde);
 
     box.appendChild(top);
@@ -44,6 +47,7 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
     if (hinweis.length > 2) {
       var middle = createDivWithClass('middle');
       middle.innerText = hinweis;
+      middle.style.fontSize = fontSizes['kasten-hinweis'] + 'em';
       box.appendChild(middle);
     }
 
@@ -56,6 +60,7 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
         kastenArt.classList.add('vertretung');
       }
       kastenArt.innerText = art;
+      kastenArt.style.fontSize = fontSizes['kasten-art'] + 'em';
       bottom.appendChild(kastenArt);
 
     box.appendChild(bottom);
@@ -73,6 +78,7 @@ function updateBoxClass(schoolClass) {
   var box = createBox();
   box.classList.add('klasse');
   box.classList.add(findBgColorCssClassByGrade(schoolClass));
+  box.style.fontSize = fontSizes['kasten-klasse'] + 'em';
 
   var p = document.createElement('p');
   p.innerText = schoolClass;
@@ -134,6 +140,7 @@ function updateBoxDate(date) {
 
   var p = document.createElement('p');
   p.innerText = date;
+  p.style.fontSize = fontSizes['kasten-date'] + 'em';
   box.appendChild(p);
 
   getBoxContainer().appendChild(box);

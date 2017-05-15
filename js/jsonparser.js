@@ -1,6 +1,19 @@
 var urlIndexhtml = 'index.html';
 var urlPlanhtml = 'plan.html';
 
+var fontSizes = {
+  'header-time':3,
+
+  'kasten-date':1,
+  'kasten-klasse':2,
+
+  'kasten-fach':1.2,
+  'kasten-raum':1,
+  'kasten-stunde':1.2,
+  'kasten-hinweis':1,
+  'kasten-art':1
+};
+
 //http://stackoverflow.com/a/22790025
 function updateVertretungsplan() {
   var httpreq = new XMLHttpRequest();
@@ -114,6 +127,14 @@ function updatePlan(plan) {
 
 function adjustFontSize() {
   var size = getSizeParameter();
+
+  for (var key in fontSizes) {
+    if (fontSizes.hasOwnProperty(key)) {
+      fontSizes[key] = fontSizes[key] * size;
+    }
+  }
+
+  document.querySelector('.time').style.fontSize = fontSizes['header-time'] * size + 'em';
 }
 
 function getSizeParameter() {
