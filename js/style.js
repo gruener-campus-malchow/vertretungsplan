@@ -46,6 +46,13 @@ function addTextWithBRs(e, text) {
   }
 }
 
+function setKlassenstufeTextInHeader() {
+  var klassenstufe = parameters['klassenstufe'];
+  if (klassenstufe !== undefined && klassenstufe !== '') {
+    document.querySelector('#text-klassenstufe').innerText = klassenstufe;
+  }
+}
+
 var infoButton = document.getElementById('info-button');
 function setInfoButtonText(text) {
   infoButton.addEventListener('click', function() { alert(text); });

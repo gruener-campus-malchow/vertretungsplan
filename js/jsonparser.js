@@ -107,6 +107,8 @@ function finishedParsing() {
   }
 
   updatePlanPaddingTop();
+
+  setKlassenstufeTextInHeader();  //style.js
 }
 
 function isPasswordWrong(json) {
