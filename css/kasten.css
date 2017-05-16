@@ -67,9 +67,9 @@
 }
 .kasten-raum {
     float:left;
-    line-height:30px; /*same value as .top height => vertical center*/
     margin-left:2px;
     margin-right:2px;
+    padding-top:5px;
     /*background-color:#666666;*/
     color:var(--kasten-raum-text-color);
 }
