@@ -99,7 +99,11 @@
 }
 .date {
   background-color:var(--kasten-date-background-color);
-  color:white;
+  display:block;
+  font-size:1.5em;
+  margin-top:10px;
+  margin-bottom:10px;
+  box-shadow:5px 5px 10px var(--header-shadow-color);
 }
 .date p {
   margin:12px;
