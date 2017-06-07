@@ -4,6 +4,7 @@ var urlPlanhtml = 'plan.html';
 var maxTimeFactor = 3;
 var fontSizes = {
   'header-time':3,
+  'header-klassenstufe':3.4,
 
   'kasten-date':1,
   'kasten-klasse':2,
@@ -107,6 +108,8 @@ function finishedParsing() {
   }
 
   updatePlanPaddingTop();
+
+  setKlassenstufeTextInHeader();  //style.js
 }
 
 function isPasswordWrong(json) {
@@ -150,6 +153,8 @@ function adjustFontSize() {
     timeFactor = maxTimeFactor;
   }
   document.querySelector('.time').style.fontSize = fontSizes['header-time'] * timeFactor + 'em';
+  
+  document.querySelector('#text-klassenstufe').style.fontSize = fontSizes['header-klassenstufe'] * size + 'em';
 }
 
 function getSizeParameter() {
