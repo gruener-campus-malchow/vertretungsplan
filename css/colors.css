@@ -21,14 +21,14 @@
   /* Kasten */
   --kasten-background-color:var(--light-orange);
   --kasten-border-color:var(--grey);
-  --kasten-fach-text-color:var(--dark-green);
+  --kasten-fach-text-color:var(--black);
   --kasten-stunde-text-color:var(--kasten-fach-text-color);
-  --kasten-raum-text-color:var(--black);
+  --kasten-raum-text-color:var(--dark-green);
   --kasten-klasse-background-color:var(--green);
   --kasten-klasse-border-color:var(--kasten-border-color);
   --kasten-ausfall-text-color:var(--red);
   --kasten-vertretung-text-color:var(--blue);
-  --kasten-date-background-color:var(--grey);
+  --kasten-date-background-color:var(--light-orange);
 
   /* Klassenstufen */
   --no-grade-color:var(--grey);
