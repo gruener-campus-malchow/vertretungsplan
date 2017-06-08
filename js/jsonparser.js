@@ -1,6 +1,7 @@
 var urlIndexhtml = 'index.html';
 var urlPlanhtml = 'plan.html';
 
+var maxTimeFactor = 3;
 var fontSizes = {
   'header-time':3,
   'header-klassenstufe':3.4,
@@ -141,11 +142,18 @@ function adjustFontSize() {
 
   for (var key in fontSizes) {
     if (fontSizes.hasOwnProperty(key)) {
-      fontSizes[key] = fontSizes[key] * size;
+      if (key !== 'header-time') {
+        fontSizes[key] = fontSizes[key] * size;
+      }
     }
   }
 
-  document.querySelector('.time').style.fontSize = fontSizes['header-time'] * size + 'em';
+  var timeFactor = size;
+  if (timeFactor > maxTimeFactor) {
+    timeFactor = maxTimeFactor;
+  }
+  document.querySelector('.time').style.fontSize = fontSizes['header-time'] * timeFactor + 'em';
+  
   document.querySelector('#text-klassenstufe').style.fontSize = fontSizes['header-klassenstufe'] * size + 'em';
 }
 
