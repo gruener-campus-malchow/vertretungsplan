@@ -26,6 +26,7 @@
     /*box-shadow:1px 1px 5px grey;*/
     border:2px solid var(--kasten-border-color);
     background-color:var(--kasten-background-color);
+    border-radius:3px;
 }
 .info-kasten {
   display:inline-block;
