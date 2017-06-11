@@ -84,7 +84,6 @@
 }
 .klasse {
   font-size:2em;
-  box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
 }
 .klasse p {
   margin:0;
