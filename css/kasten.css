@@ -7,6 +7,7 @@
   max-width:200px;
   border-right:2px solid var(--green);
   box-shadow:1px 0px 10px var(--header-shadow-color);
+  word-wrap:break-word;
 }
 #info-text {
   margin:10px;
@@ -37,6 +38,7 @@
   padding:5px;
   overflow:hidden;
   white-space:normal;
+  word-wrap:break-word;
 }
 .info-date {
   color:var(--blue);
