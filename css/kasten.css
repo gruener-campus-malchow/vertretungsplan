@@ -7,6 +7,7 @@
   max-width:200px;
   border-right:2px solid var(--green);
   box-shadow:1px 0px 10px var(--header-shadow-color);
+  word-wrap:break-word;
 }
 #info-text {
   margin:10px;
@@ -24,8 +25,9 @@
     vertical-align:top;
     padding:2px;
     /*box-shadow:1px 1px 5px grey;*/
-    border:1px solid var(--kasten-border-color);
+    border:2px solid var(--kasten-border-color);
     background-color:var(--kasten-background-color);
+    border-radius:3px;
 }
 .info-kasten {
   display:inline-block;
@@ -36,6 +38,7 @@
   padding:5px;
   overflow:hidden;
   white-space:normal;
+  word-wrap:break-word;
 }
 .info-date {
   color:var(--blue);
@@ -84,7 +87,6 @@
 }
 .klasse {
   font-size:2em;
-  box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
 }
 .klasse p {
   margin:0;
@@ -101,9 +103,12 @@
   background-color:var(--kasten-date-background-color);
   display:block;
   font-size:1.5em;
+  margin-top:50px;
+  margin-bottom:20px;
+  box-shadow:0px 0px 20px var(--header-shadow-color);
+}
+.date:first-child {
   margin-top:10px;
-  margin-bottom:10px;
-  box-shadow:5px 5px 10px var(--header-shadow-color);
 }
 .date p {
   margin:12px;
