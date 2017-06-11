@@ -24,7 +24,7 @@
     vertical-align:top;
     padding:2px;
     /*box-shadow:1px 1px 5px grey;*/
-    border:1px solid var(--kasten-border-color);
+    border:2px solid var(--kasten-border-color);
     background-color:var(--kasten-background-color);
 }
 .info-kasten {
