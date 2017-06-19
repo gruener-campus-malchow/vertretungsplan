@@ -1,12 +1,18 @@
 .plan-body {
+  display:-webkit-box;
+  display:-ms-flexbox;
   display:flex;
-  flex-direction:row;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
 }
 #left-side {
   min-width:200px;
   max-width:200px;
   border-right:2px solid var(--green);
-  box-shadow:1px 0px 10px var(--header-shadow-color);
+  -webkit-box-shadow:1px 0px 10px var(--header-shadow-color);
+          box-shadow:1px 0px 10px var(--header-shadow-color);
 }
 #info-text {
   margin:10px;
@@ -84,7 +90,8 @@
 }
 .klasse {
   font-size:2em;
-  box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
+  -webkit-box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
+          box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
 }
 .klasse p {
   margin:0;
@@ -103,7 +110,8 @@
   font-size:1.5em;
   margin-top:10px;
   margin-bottom:10px;
-  box-shadow:5px 5px 10px var(--header-shadow-color);
+  -webkit-box-shadow:5px 5px 10px var(--header-shadow-color);
+          box-shadow:5px 5px 10px var(--header-shadow-color);
 }
 .date p {
   margin:12px;
