@@ -11,5 +11,5 @@
 
 ::-webkit-scrollbar-thumb
 {
-  background:#4CAF50;
+  background:var(--scrollbar-color);
 }
