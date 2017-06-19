@@ -1,12 +1,18 @@
 .plan-body {
+  display:-webkit-box;
+  display:-ms-flexbox;
   display:flex;
-  flex-direction:row;
+  -webkit-box-orient:horizontal;
+  -webkit-box-direction:normal;
+      -ms-flex-direction:row;
+          flex-direction:row;
 }
 #left-side {
   min-width:200px;
   max-width:200px;
   border-right:2px solid var(--green);
-  box-shadow:1px 0px 10px var(--header-shadow-color);
+  -webkit-box-shadow:1px 0px 10px var(--header-shadow-color);
+          box-shadow:1px 0px 10px var(--header-shadow-color);
   word-wrap:break-word;
 }
 #info-text {
@@ -87,6 +93,11 @@
 }
 .klasse {
   font-size:2em;
+<<<<<<< HEAD
+  -webkit-box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
+          box-shadow: 1px 1px 3px var(--kasten-klasse-border-color);
+=======
+>>>>>>> master
 }
 .klasse p {
   margin:0;
@@ -109,6 +120,12 @@
 }
 .date:first-child {
   margin-top:10px;
+<<<<<<< HEAD
+  margin-bottom:10px;
+  -webkit-box-shadow:5px 5px 10px var(--header-shadow-color);
+          box-shadow:5px 5px 10px var(--header-shadow-color);
+=======
+>>>>>>> master
 }
 .date p {
   margin:12px;
