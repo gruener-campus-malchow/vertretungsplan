@@ -39,4 +39,7 @@
   --grade-eleven-color:var(--blue);
   --grade-twelve-color:var(--light-green);
   --grade-thirteen-color:var(--light-yellow);
+
+  /* Scrollbar */
+  --scrollbar-color:var(--green);
 }

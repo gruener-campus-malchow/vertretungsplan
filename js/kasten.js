@@ -21,9 +21,9 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
   checkIfNewClass(klasse);
 
   var box = createBox();
-  box.classList.add(findBorderColorCssClassByGrade(klasse));
 
     var top = createDivWithClass('top');
+    top.classList.add(findBorderColorCssClassByGrade(klasse));
 
       var kastenFach = createDivWithClass('kasten-fach');
       kastenFach.innerText = fach;
