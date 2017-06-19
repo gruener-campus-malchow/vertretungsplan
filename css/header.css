@@ -32,20 +32,21 @@
   height:100px;
 }
 .info-button {
-  float:right;
-  font-size:1.5em;
+  font-size:2em;
   font-weight:900;
-  width:30px;
-  height:30px;
+  width:35px;
+  height:35px;
   text-align:center;
   margin-right:20px;
-  margin-top:7px;
   border:2px solid black;
-  border-radius:30px;
-  -webkit-box-shadow:1px 1px 4px black;
-          box-shadow:1px 1px 4px black;
-  color:#F44336;
+  -webkit-box-shadow:0 0 4px black;
+          box-shadow:0 0 4px black;
+  border-radius:40px;
+  color:var(--green);
   background-color:white;
+  cursor:pointer;
+  user-select:none;
+  line-height:36px;
   display:none;
 }
 .dropdown-label {
