@@ -24,22 +24,20 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
 
     var top = createDivWithClass('top');
     top.classList.add(findBorderColorCssClassByGrade(klasse));
+    top.style.fontSize = fontSizes['kasten-top'] + 'em';
 
       var kastenFach = createDivWithClass('kasten-fach');
       kastenFach.innerText = fach;
-      kastenFach.style.fontSize = fontSizes['kasten-fach'] + 'em';
       top.appendChild(kastenFach);
 
       var kastenRaum = createDivWithClass('kasten-raum');
       if (raum.indexOf('---') === -1) {
         kastenRaum.innerText = raum;
       }
-      kastenRaum.style.fontSize = fontSizes['kasten-raum'] + 'em';
-      top.appendChild(kastenRaum);
+      top.appendChild(kastenRaum);  //still appended if no raum for little margin
 
       var kastenStunde = createDivWithClass('kasten-stunde');
       kastenStunde.innerText = stunde;
-      kastenStunde.style.fontSize = fontSizes['kasten-stunde'] + 'em';
       top.appendChild(kastenStunde);
 
     box.appendChild(top);

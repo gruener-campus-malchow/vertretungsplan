@@ -29,7 +29,7 @@
     margin:2px;
     display:inline-block;
     vertical-align:top;
-    padding:2px;
+    padding:5px;
     /*box-shadow:1px 1px 5px grey;*/
     border:2px solid var(--kasten-border-color);
     background-color:var(--kasten-background-color);
@@ -50,44 +50,33 @@
   color:var(--blue);
 }
 .top {
-  display:inline-block;
+  display:flex;
+  align-items:center;
   width:100%;
+  padding-bottom:5px;
   border-bottom:1px solid var(--grey);
 }
 .middle {
-  max-width:250px;
-  padding-left:5px;
-  padding-right:5px;
+  margin-top:5px;
 }
 .bottom {
-  padding-left:5px;
-  padding-right:5px;
   margin-top:5px;
 }
 .kasten-fach {
-    float:left;
     /*background-color:#999999;*/
-    font-size:1.2em;
-    padding:5px;
     color:var(--kasten-fach-text-color);
 }
 .kasten-stunde {
-    float:right;
     /*background-color:#888888;*/
-    font-size:1.2em;
-    padding:5px;
     color:var(--kasten-stunde-text-color);
 }
 .kasten-raum {
-    float:left;
-    margin-left:2px;
-    margin-right:2px;
-    padding-top:7px;
     /*background-color:#666666;*/
     color:var(--kasten-raum-text-color);
+    margin-left:5px;
+    margin-right:5px;
 }
 .kasten-art {
-    float:left;
     width:100%;
     /*background-color:#777777;*/
 }
@@ -98,7 +87,6 @@
 .klasse p {
   margin:0;
   margin-top:-5px;
-  padding:5px;
 }
 .ausfall {
   color:var(--kasten-ausfall-text-color);
