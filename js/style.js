@@ -23,6 +23,14 @@ function hideById(id) {
   document.getElementById(id).classList.add('hidden');
 }
 
+function showElement(e) {
+  e.classList.remove('hidden');
+}
+
+function hideElement(e) {
+  e.classList.add('hidden');
+}
+
 function setInfoText(text) {
   if(text!==undefined&&text!=='') {
     showInfoText();
