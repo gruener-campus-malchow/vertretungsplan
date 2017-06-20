@@ -57,7 +57,10 @@ function addTextWithBRs(e, text) {
 function setKlassenstufeTextInHeader() {
   var klassenstufe = parameters['klassenstufe'];
   if (klassenstufe !== undefined && klassenstufe !== '') {
-    document.querySelector('#text-klassenstufe').innerText = klassenstufe;
+    var textKlassenstufe = document.querySelector('#text-klassenstufe');
+    
+    textKlassenstufe.innerText = klassenstufe;
+    showElement(textKlassenstufe);
   }
 }
 
