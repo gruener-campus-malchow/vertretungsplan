@@ -23,6 +23,14 @@ function hideById(id) {
   document.getElementById(id).classList.add('hidden');
 }
 
+function showElement(e) {
+  e.classList.remove('hidden');
+}
+
+function hideElement(e) {
+  e.classList.add('hidden');
+}
+
 function setInfoText(text) {
   if(text!==undefined&&text!=='') {
     showInfoText();
@@ -49,7 +57,10 @@ function addTextWithBRs(e, text) {
 function setKlassenstufeTextInHeader() {
   var klassenstufe = parameters['klassenstufe'];
   if (klassenstufe !== undefined && klassenstufe !== '') {
-    document.querySelector('#text-klassenstufe').innerText = klassenstufe;
+    var textKlassenstufe = document.querySelector('#text-klassenstufe');
+    
+    textKlassenstufe.innerText = klassenstufe;
+    showElement(textKlassenstufe);
   }
 }
 

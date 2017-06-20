@@ -9,9 +9,7 @@ var fontSizes = {
   'kasten-date':1,
   'kasten-klasse':2,
 
-  'kasten-fach':1.2,
-  'kasten-raum':1,
-  'kasten-stunde':1.2,
+  'kasten-top':1.2,
   'kasten-hinweis':1,
   'kasten-art':1
 };
