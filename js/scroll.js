@@ -1,4 +1,4 @@
-const SCROLL_PLAN_DELAY = 3000, SCROLL_INFO_DELAY = 3000;
+const SCROLL_PLAN_DELAY = 10 * 1000, SCROLL_INFO_DELAY = 10 * 1000;
 var intervalScrollPlan, intervalScrollInfo;
 
 function startScrolling() {
