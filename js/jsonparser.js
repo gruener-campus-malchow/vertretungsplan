@@ -1,19 +1,6 @@
 var urlIndexhtml = 'index.html';
 var urlPlanhtml = 'plan.html';
 
-var maxTimeFactor = 3;
-var fontSizes = {
-  'header-time':3,
-  'header-klassenstufe':3.4,
-
-  'kasten-date':1,
-  'kasten-klasse':2,
-
-  'kasten-top':1.2,
-  'kasten-hinweis':1,
-  'kasten-art':1
-};
-
 //http://stackoverflow.com/a/22790025
 function updateVertretungsplan() {
   var httpreq = new XMLHttpRequest();
@@ -137,22 +124,18 @@ function updatePlan(plan) {
 
 function adjustFontSize() {
   var size = getSizeParameter();
+  var maxHeaderSize = 3;
 
-  for (var key in fontSizes) {
-    if (fontSizes.hasOwnProperty(key)) {
-      if (key !== 'header-time') {
-        fontSizes[key] = fontSizes[key] * size;
-      }
-    }
-  }
+  var kastenContainer = document.querySelector('.kasten-container');
+  var header = document.querySelector('.header');
 
-  var timeFactor = size;
-  if (timeFactor > maxTimeFactor) {
-    timeFactor = maxTimeFactor;
+  kastenContainer.style.fontSize = size + 'em';
+
+  var headerSize = size;
+  if (headerSize > 3) {
+    headerSize = 3;
   }
-  document.querySelector('.time').style.fontSize = fontSizes['header-time'] * timeFactor + 'em';
-  
-  document.querySelector('#text-klassenstufe').style.fontSize = fontSizes['header-klassenstufe'] * size + 'em';
+  header.style.fontSize = headerSize + 'em';
 }
 
 function getSizeParameter() {

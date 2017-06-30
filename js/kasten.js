@@ -24,7 +24,6 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
 
     var top = createDivWithClass('top');
     top.classList.add(findBorderColorCssClassByGrade(klasse));
-    top.style.fontSize = fontSizes['kasten-top'] + 'em';
 
       var kastenFach = createDivWithClass('kasten-fach');
       kastenFach.innerText = fach;
@@ -45,7 +44,6 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
     if (hinweis.length > 2) {
       var middle = createDivWithClass('middle');
       middle.innerText = hinweis;
-      middle.style.fontSize = fontSizes['kasten-hinweis'] + 'em';
       box.appendChild(middle);
     }
 
@@ -58,7 +56,6 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art) {
         kastenArt.classList.add('vertretung');
       }
       kastenArt.innerText = art;
-      kastenArt.style.fontSize = fontSizes['kasten-art'] + 'em';
       bottom.appendChild(kastenArt);
 
     box.appendChild(bottom);
@@ -76,7 +73,6 @@ function updateBoxClass(schoolClass) {
   var box = createBox();
   box.classList.add('klasse');
   box.classList.add(findBgColorCssClassByGrade(schoolClass));
-  box.style.fontSize = fontSizes['kasten-klasse'] + 'em';
 
   var p = document.createElement('p');
   p.innerText = schoolClass;
@@ -139,7 +135,6 @@ function updateBoxDate(date) {
 
   var p = document.createElement('p');
   p.innerText = date;
-  p.style.fontSize = fontSizes['kasten-date'] + 'em';
   box.appendChild(p);
 
   if (dateCounter > 0) {
