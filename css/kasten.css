@@ -50,6 +50,7 @@
   color:var(--blue);
 }
 .top {
+  font-size:1.2em;
   display:flex;
   align-items:center;
   width:100%;
