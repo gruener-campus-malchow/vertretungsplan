@@ -161,14 +161,22 @@ function updateClasses(plan) {
 
     updateBoxDate(day['Tag']);
 
+    var classNames = [];
     for (var className in day) {
       if (day.hasOwnProperty(className)) {
         if (noClass.indexOf(className) === -1) {
-          var schoolClass = day[className];
-          updateClass(className, schoolClass);
+          classNames.push(className);
         }
       }
     }
+
+    classNames = sortClassNames(classNames);
+    for (var j = 0; j < classNames.length; j++) {
+        var className = classNames[j];
+        var schoolClass = day[className];
+        updateClass(className, schoolClass);
+    }
+
   }
 }
 
