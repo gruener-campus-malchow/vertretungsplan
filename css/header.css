@@ -1,8 +1,6 @@
 .header {
     width:100%;
     background-color:var(--header-color);
-    -webkit-box-shadow: 0px 1px 10px var(--header-shadow-color);
-            box-shadow: 0px 1px 10px var(--header-shadow-color);
     z-index:2;
     position:relative;
     display:-webkit-box;
@@ -17,8 +15,8 @@
 }
 .header-info {
     background-color:var(--header-info-color);
-    -webkit-box-shadow: 0px 3px 10px var(--header-shadow-color);
-            box-shadow: 0px 3px 10px var(--header-shadow-color);
+    -webkit-box-shadow: 0px 2px 5px var(--header-shadow-color);
+            box-shadow: 0px 2px 5px var(--header-shadow-color);
     width:100%;
     white-space:nowrap;
     z-index:1;
