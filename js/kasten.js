@@ -1,5 +1,6 @@
 var lastClass = '';
 var allClassNames = [];
+var lastGrade = '';
 
 function getBoxContainer() {
   return document.getElementById('kasten-container');
@@ -78,7 +79,30 @@ function updateBoxClass(schoolClass) {
   p.innerText = schoolClass;
   box.appendChild(p);
 
+  if (isNewGrade(schoolClass)) {
+    getBoxContainer().appendChild(document.createElement('br'));
+  }
+
+  lastGrade = getGradeOfClass(schoolClass);
+
   getBoxContainer().appendChild(box);
+}
+
+function isNewGrade(schoolClass) {
+  var grade = getGradeOfClass(schoolClass);
+  if (lastGrade !== '' && lastGrade !== grade) {
+    return true;
+  }
+
+  return false;
+}
+
+function getGradeOfClass(schoolClass) {
+  if (schoolClass.length === 2) {
+    return schoolClass.substring(0, 1);
+  } else {
+    return schoolClass.substring(0, 2);
+  }
 }
 
 function updateInfoDateBox(date) {
