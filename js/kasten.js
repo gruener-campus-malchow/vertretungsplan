@@ -1,5 +1,6 @@
 var lastClass = '';
 var allClassNames = [];
+var lastGrade = '';
 
 function getBoxContainer() {
   return document.getElementById('kasten-container');
@@ -78,7 +79,30 @@ function updateBoxClass(schoolClass) {
   p.innerText = schoolClass;
   box.appendChild(p);
 
+  if (isNewGrade(schoolClass)) {
+    getBoxContainer().appendChild(document.createElement('br'));
+  }
+
+  lastGrade = getGradeOfClass(schoolClass);
+
   getBoxContainer().appendChild(box);
+}
+
+function isNewGrade(schoolClass) {
+  var grade = getGradeOfClass(schoolClass);
+  if (lastGrade !== '' && lastGrade !== grade) {
+    return true;
+  }
+
+  return false;
+}
+
+function getGradeOfClass(schoolClass) {
+  if (schoolClass.length === 2) {
+    return schoolClass.substring(0, 1);
+  } else {
+    return schoolClass.substring(0, 2);
+  }
 }
 
 function updateInfoDateBox(date) {
@@ -109,20 +133,16 @@ function findBorderColorCssClassByGrade(schoolClass) {
 }
 
 function findBgColorCssClassByGrade(schoolClass) {
-  if (schoolClass.includes('7')) {
-    return 'grade-seven';
-  } else if (schoolClass.includes('8')) {
-    return 'grade-eight';
-  } else if (schoolClass.includes('9')) {
-    return 'grade-nine';
-  } else if (schoolClass.includes('10')) {
-    return 'grade-ten';
-  } else if (schoolClass.includes('11')) {
-    return 'grade-eleven';
-  } else if (schoolClass.includes('12')) {
-    return 'grade-twelve';
-  } else if (schoolClass.includes('13')) {
-    return 'grade-thirteen';
+  var grade = getGradeOfClass(schoolClass);
+
+  switch (grade) {
+    case '7':  return 'grade-seven';
+    case '8':  return 'grade-eight';
+    case '9':  return 'grade-nine';
+    case '10': return 'grade-ten';
+    case '11': return 'grade-eleven';
+    case '12': return 'grade-twelve';
+    case '13': return 'grade-thirteen';
   }
 
   return 'no-grade';
