@@ -61,6 +61,7 @@ function setKlassenstufeTextInHeader() {
     
     textKlassenstufe.innerText = klassenstufe;
     showElement(textKlassenstufe);
+    showById('label-klassenstufe');
   }
 }
 

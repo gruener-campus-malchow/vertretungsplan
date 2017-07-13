@@ -56,11 +56,15 @@
 .klassendropdown {
   font-size:.9em;
 }
+#klassenstufe {
+  height:100%;
+  display:flex;
+  align-items:center;
+}
 #text-klassenstufe {
   font-size:3.4em;
-  line-height:100px;
-  margin-left:25px;
   font-weight:800;
+  margin-left:25px;
 }
 @media (max-width:600px) {
   .header {
@@ -78,5 +82,13 @@
   }
   .info-button {
     display:inline;
+  }
+}
+@media (max-width:720px) {
+  #label-klassenstufe {
+    display:none;
+  }
+  #text-klassenstufe {
+    font-size:2em;
   }
 }
