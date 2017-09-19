@@ -122,7 +122,7 @@ function createInfoBox(text) {
   box.classList.add('info-kasten');
 
   addTextWithBRs(box, text);
-  
+
   return box;
 }
 
@@ -200,6 +200,27 @@ function isStundeInPast(date, stunde) {
   if (date !== getCurrentDate()) {
     return false;
   }
+
+  var stunden = stunde.split("-");
+  var lastStunde = parseInt(stunden[stunden.length -1]);
+
+  if (getEndTimeInMinutes(lastStunde) < convertTimeToMinutes(getCurrentTime())) {
+    return true;
+  }
+
+  return false;
+}
+
+function getEndTimeInMinutes(stunde) {
+
+}
+
+function getCurrentTime() {
+
+}
+
+function convertTimeToMinutes(time) {
+  
 }
 
 function getCurrentDate() {//https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
