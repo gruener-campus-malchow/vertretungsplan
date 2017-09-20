@@ -10,7 +10,11 @@ function getInfoContainer() {
   return document.getElementById('info-container');
 }
 
-function updateBox(klasse, raum, fach, stunde, hinweis, art) {
+function updateBox(klasse, raum, fach, stunde, hinweis, art, date) {
+  if (isStundeInPast(date, stunde)) {
+    return;
+  }
+
   if (allClassNames.indexOf(klasse) === -1) {
     allClassNames.push(klasse);
   }
@@ -118,7 +122,7 @@ function createInfoBox(text) {
   box.classList.add('info-kasten');
 
   addTextWithBRs(box, text);
-  
+
   return box;
 }
 
@@ -191,3 +195,18 @@ function checkIfNewClass(schoolClass) {
   lastClass = schoolClass;
 }
 //updateKasten("11a", "2.209", "BIO", "5", "Ausfall", "Ausfall");
+
+function isStundeInPast(date, stunde) {
+  if (date !== getCurrentDate()) {
+    return false;
+  }
+
+  var stunden = stunde.split("-");
+  var lastStunde = parseInt(stunden[stunden.length -1]);
+
+  if (getEndTimeInMinutes(lastStunde) < convertTimeToMinutes(getCurrentTime())) {
+    return true;
+  }
+
+  return false;
+}

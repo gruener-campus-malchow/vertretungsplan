@@ -158,6 +158,7 @@ function updateClasses(plan) {
 
   for (var i = 0; i < plan.length; i++) {
     var day = plan[i];
+    var date = day['Time'];
 
     updateBoxDate(day['Tag']);
 
@@ -174,13 +175,13 @@ function updateClasses(plan) {
     for (var j = 0; j < classNames.length; j++) {
         var className = classNames[j];
         var schoolClass = day[className];
-        updateClass(className, schoolClass);
+        updateClass(className, schoolClass, date);
     }
 
   }
 }
 
-function updateClass(className, schoolClass) {
+function updateClass(className, schoolClass, date) {
   var entryNumbers = [];
   for (var entryNumber in schoolClass) {
     if (schoolClass.hasOwnProperty(entryNumber)) {
@@ -217,7 +218,8 @@ function updateClass(className, schoolClass) {
       entry['Fach'],
       entry['Stunde'],
       entry['Hinweis'],
-      entry['Art']
+      entry['Art'],
+      date
     );
   }
 }
