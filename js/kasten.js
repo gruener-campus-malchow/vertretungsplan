@@ -29,41 +29,49 @@ function updateBox(klasse, raum, fach, stunde, hinweis, art, date) {
 
     var top = createDivWithClass('top');
     top.classList.add(findBorderColorCssClassByGrade(klasse));
+      
+			if (fach.trim() !== 'null') {
+				var kastenFach = createDivWithClass('kasten-fach');
+				kastenFach.innerText = fach;
+				top.appendChild(kastenFach);			
+			}
 
-      var kastenFach = createDivWithClass('kasten-fach');
-      kastenFach.innerText = fach;
-      top.appendChild(kastenFach);
+			if (raum.trim() !== 'null') {
+		    var kastenRaum = createDivWithClass('kasten-raum');
+		    if (raum.indexOf('---') === -1) {
+		      kastenRaum.innerText = raum;
+		    }
+		    top.appendChild(kastenRaum);  //still appended if no raum for little margin
+			}
 
-      var kastenRaum = createDivWithClass('kasten-raum');
-      if (raum.indexOf('---') === -1) {
-        kastenRaum.innerText = raum;
-      }
-      top.appendChild(kastenRaum);  //still appended if no raum for little margin
-
-      var kastenStunde = createDivWithClass('kasten-stunde');
-      kastenStunde.innerText = stunde;
-      top.appendChild(kastenStunde);
+			if (stunde.trim() !== 'null') {
+		    var kastenStunde = createDivWithClass('kasten-stunde');
+		    kastenStunde.innerText = stunde;
+		    top.appendChild(kastenStunde);
+			}
 
     box.appendChild(top);
 
-    if (hinweis.length > 2) {
+    if (hinweis.length > 2 && hinweis.trim() !== 'null') {
       var middle = createDivWithClass('middle');
       middle.innerText = hinweis;
       box.appendChild(middle);
     }
 
-    var bottom = createDivWithClass('bottom');
+		if (art.trim() !== 'null') {
+		  var bottom = createDivWithClass('bottom');
 
-      var kastenArt = createDivWithClass('kasten-art');
-      if (art.indexOf('Ausfall') !== -1) {
-        kastenArt.classList.add('ausfall');
-      } else if (art.indexOf('Vertretung') !== -1) {
-        kastenArt.classList.add('vertretung');
-      }
-      kastenArt.innerText = art;
-      bottom.appendChild(kastenArt);
+		    var kastenArt = createDivWithClass('kasten-art');
+		    if (art.indexOf('Ausfall') !== -1) {
+		      kastenArt.classList.add('ausfall');
+		    } else if (art.indexOf('Vertretung') !== -1) {
+		      kastenArt.classList.add('vertretung');
+		    }
+		    kastenArt.innerText = art;
+		    bottom.appendChild(kastenArt);
 
-    box.appendChild(bottom);
+		  box.appendChild(bottom);
+		}
 
   getBoxContainer().appendChild(box);
 }
