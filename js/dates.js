@@ -42,6 +42,10 @@ function getCurrentTime() {
 }
 
 function convertTimeToMinutes(time) {
+	if (time === undefined) {
+		return 10000000;
+	}
+
   time = time.split(':');
   return parseInt(time[0]) * 60 + parseInt(time[1]);
 }

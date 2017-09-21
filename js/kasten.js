@@ -10,10 +10,10 @@ function getInfoContainer() {
   return document.getElementById('info-container');
 }
 
-function updateBox(klasse, raum, fach, stunde, hinweis, art, date) {
-  if (isStundeInPast(date, stunde)) {
-    return;
-  }
+function updateBox(klasse, raum, fach, stunde, hinweis, art, date) { 
+	if (isStundeInPast(date, stunde)) {
+	  return;
+	}
 
   if (allClassNames.indexOf(klasse) === -1) {
     allClassNames.push(klasse);
