@@ -114,6 +114,16 @@
 .date p {
   margin:12px;
 }
+#banner-area {
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+#banner {
+  max-height:40vh;
+  max-width:100vw;
+}
 
 .no-grade {
   background-color:var(--no-grade-color);
