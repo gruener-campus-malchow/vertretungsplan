@@ -2,7 +2,7 @@ window.onresize = updatePlanPaddingTop;
 
 function updatePlanPaddingTop() {
   var plan = document.getElementById('kasten-container');
-  plan.style.height = window.innerHeight - getHeaderHeight() - 15 + 'px';
+  plan.style.height = window.innerHeight - getHeaderHeight() - getBannerHeight() - 20 + 'px';
 }
 
 function getHeaderHeight() {
@@ -13,6 +13,10 @@ function getHeaderHeight() {
   }
 
   return height;
+}
+
+function getBannerHeight() {
+  return $('#banner-area').height();
 }
 
 function showById(id) {
@@ -58,7 +62,7 @@ function setKlassenstufeTextInHeader() {
   var klassenstufe = parameters['klassenstufe'];
   if (klassenstufe !== undefined && klassenstufe !== '') {
     var textKlassenstufe = document.querySelector('#text-klassenstufe');
-    
+
     textKlassenstufe.innerText = klassenstufe;
     showElement(textKlassenstufe);
     showById('label-klassenstufe');
