@@ -63,6 +63,7 @@ function getUrlArguments() {
   var user = parameters['user'];
   var klassenstufe = parameters['klassenstufe'];
   var size = parameters['size'];
+  var banner = parameters['banner'];
 
   var args = '?cert=' + cert;
   if (dev) {
@@ -80,6 +81,9 @@ function getUrlArguments() {
   if (size) {
     args += '&size=' + size;
   }
+  if (banner) {
+    args += '&banner=' + banner;
+  }
 
   return args;
 }
@@ -90,6 +94,10 @@ function finishedParsing() {
   } else {
     allClassNames = sortClassNames(allClassNames);
     addClassNamesToDropdown(allClassNames);
+  }
+
+  if (parameters['banner'] === 'true') {
+    showById('banner');
   }
 
   updatePlanPaddingTop();

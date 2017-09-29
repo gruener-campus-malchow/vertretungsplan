@@ -63,7 +63,7 @@ function bottomReached() {
 }
 
 function calcPlanScrollDistance() {
-  return $(window).height() - getHeaderHeight() - 50;
+  return $(window).height() - getHeaderHeight() - getBannerHeight() - 50;
 }
 
 function stopScrollingPlan() {
