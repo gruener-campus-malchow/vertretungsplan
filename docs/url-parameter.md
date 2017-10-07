@@ -26,7 +26,16 @@ Parameter: `dev=wanto`
 
 Dieser Parameter füllt den Plan mit anonymisierten Daten. Wird dieser Parameter angegeben, wird kein Passwort benötigt.
 Er existiert für Testzwecke.
+## Schriftgröße anpassen
+Parameter: `size=1.2`
 
+Alle Schriftgrößen werden mit diesem Wert multipliziert, das heißt eine Größe von 1.0 entspricht der Originalgröße. 2 entspricht der doppelten Größe und 0.5 der halben Größe.
+Der Text im Header nimmt maximal den Wert 3 an.
+## Banner einblenden
+Parameter: `banner=true`
+
+Im unteren Bereich des Plans wird das Bild eingeblendet, das unter https://cis.gruener-campus-malchow.de/diglit/img/banner.png gespeichert ist.
+Der Banner nimmt maximal 40% der Höhe des Bildschirms und 100% der Breite ein, er sollte also eher breit als hoch sein, damit er weniger Platz verbraucht.
 # URL-Parameter für index.html:
 ## Falsches Passwort
 Parameter: `wrongpw=true`
