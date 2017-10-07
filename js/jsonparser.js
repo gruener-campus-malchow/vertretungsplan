@@ -1,6 +1,8 @@
 var urlIndexhtml = 'index.html';
 var urlPlanhtml = 'plan.html';
 
+var urlArguments = ['dev', 'klasse', 'user', 'klassenstufe', 'size', 'banner'];
+
 //http://stackoverflow.com/a/22790025
 function updateVertretungsplan() {
   var httpreq = new XMLHttpRequest();
@@ -57,32 +59,15 @@ function getApiUrl() {
 }
 
 function getUrlArguments() {
-  var cert = parameters['cert'];
-  var dev = parameters['dev'];
-  var klasse = parameters['klasse'];
-  var user = parameters['user'];
-  var klassenstufe = parameters['klassenstufe'];
-  var size = parameters['size'];
-  var banner = parameters['banner'];
+  var args = '?cert=' + parameters['cert'];
 
-  var args = '?cert=' + cert;
-  if (dev) {
-    args += '&dev=' + dev;
-  }
-  if (klasse) {
-    args += '&klasse=' + klasse;
-  }
-  if (user) {
-    args += '&user=' + user;
-  }
-  if (klassenstufe) {
-    args += '&klassenstufe=' + klassenstufe;
-  }
-  if (size) {
-    args += '&size=' + size;
-  }
-  if (banner) {
-    args += '&banner=' + banner;
+  for (var i = 0; i < urlArguments.length; i++) {
+    var arg = urlArguments[i];
+
+    argValue = parameters[arg];
+    if (argValue) {
+      args += "&" + arg + "=" + argValue;
+    }
   }
 
   return args;
