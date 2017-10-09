@@ -1,4 +1,4 @@
-window.onload=updateTime;
+window.onload = updateTime;
 
 var endTimes = [
   '8:00',
@@ -16,7 +16,7 @@ var endTimes = [
 var timeElement = document.getElementById("time");
 
 function updateTime() {
-    timeElement.innerText = getCurrentTime();
+  timeElement.innerText = getCurrentTime();
 }
 window.setInterval(updateTime, 1000);
 
