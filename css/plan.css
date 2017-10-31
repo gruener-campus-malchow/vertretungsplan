@@ -175,3 +175,6 @@
 .grade-thirteen-border {
   border-color:var(--grade-thirteen-color);
 }
+.no-informationen {
+  padding: 0;
+}
