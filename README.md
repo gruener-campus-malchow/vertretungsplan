@@ -2,6 +2,9 @@
 Hier wird der Vertetungsplan des [Grünen Campus Malchow](http://gruener-campus-malchow.de/) entwickelt.
 Um den aktuellen Entwicklungsstand auszutesten, besuchen Sie die Internetseite <a href="http://vertretung.quelltext.eu" target="_blank">vertretung.quelltext.eu</a>.
 
+![Plan im Foyer](img/foyer.jpg)
+![Anonyme Beispieldaten](img/bspData.jpg)
+
 # Wie kann ich mich an der Entwicklung des Plans beteiligen?
 Alles was Sie dafür benötigen, ist ein GitHub Account und eventuell Kenntnisse über mindestens eine der folgenden Sprachen:
 - HTML/CSS: wenn Sie das Layout/Design des Plans weiterentwickeln möchten ([Tutorial](http://learn.opentechschool.org))
