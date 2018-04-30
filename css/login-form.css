@@ -1,35 +1,117 @@
 * {
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
 }
 
 body {
-  width:100%;
-  height:100%;
-  display:table;
-  position:absolute;
+    width:100%;
+    height:100%;
+    display:table;
+    position:absolute;
+    background-color:#15781B;
+    font-family: 'Roboto', sans-serif;
 }
 
-.login {
-  display:table-cell;
-  vertical-align:middle;
-  padding:20px;
+.auth-wrapper {
+    padding:20px;
+    display:table-cell;
+    vertical-align:middle;
 }
 
-h1 {
-  text-align:center;
-  font-family:Arial;
+.auth-title {
+    margin-top:-120px;
+    color:#fff;
+    text-align:center;
+    font-size:50px;
+    font-weight:600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.17), 0 2px 3px rgba(0,0,0,0.36);
+}
+
+.auth-title > div {
+    width:200px;
+    height:3px;
+    left:-100px;
+    margin-left:50%;
+    margin-top:25px;
+    position:absolute;
+    background-color:#fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 form {
-  margin:auto;
-  margin-top:50px;
-  display:table;
+    width:290px;
+    height:40px;
+    left:-145px;
+    margin-top:60px;
+    margin-left:50%;    
+    display:table;
+    position:absolute;
+    background-color:#808080;
 }
 
 input {
-  height:40px;
-  font-size:1.5em;
+    width:230px;
+    height:40px;
+    padding-left:10px;
+    padding-right:50px;
+    background-color:#77CC7D;
+    border:none;
+    color:#15781B;
+    outline:none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    z-index:5;
+}
+
+input:focus {
+    height:40px;
+    background-color:#fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+input::placeholder {
+    color:#2D9434;
+    opacity:1;
+}
+
+input:-ms-input-placeholder {
+    color:#2D9434;
+}
+
+input::-ms-input-placeholder {
+    color:#2D9434;
+}
+
+.submit {
+    width:40px;
+    height:40px;
+    top:0px;
+    right:0px;
+    padding:0;
+    position:absolute;
+    background-color:rgba(0, 0, 0, 0);
+    z-index:10;
+    box-shadow:none;
+}
+
+.submit:focus {
+    background-color:rgba(0, 0, 0, 0);
+    box-shadow:none;
+}
+
+.submit-right {
+    width: 10px;
+    height: 10px;
+    top:14px;
+    right:15px;
+    display: inline-block;
+    position:absolute;
+    border-top: 2px solid #15781B;
+    border-right: 2px solid #15781B;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: '';
 }
 
 p {
@@ -41,6 +123,9 @@ p {
 }
 
 .wrong-pw {
-  color:red;
-  font-size:1.8em;
+    padding-top:90px;
+    display:table;
+    color:#4CAF52;
+    text-align:center;
+    font-size:15px;
 }
