@@ -19,30 +19,31 @@ body {
 }
 
 .auth-title {
-    margin-top:-120px;
     color:#fff;
     text-align:center;
-    font-size:50px;
-    font-weight:600;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.17), 0 2px 3px rgba(0,0,0,0.36);
+    line-height:50px;
+    font-size:30px;
+    font-weight:400;
+    z-index:30;
 }
 
-.auth-title > div {
-    width:200px;
-    height:3px;
-    left:-100px;
+.wrapper {
+    width:290px;
+    height:50px;
+    left:-145px;
+    margin-top:-40px;
     margin-left:50%;
-    margin-top:25px;
     position:absolute;
-    background-color:#fff;
+    background-color:#77CC7D;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    z-index:20;
 }
 
 form {
     width:290px;
     height:40px;
     left:-145px;
-    margin-top:60px;
+    margin-top:20px;
     margin-left:50%;    
     display:table;
     position:absolute;
@@ -114,18 +115,18 @@ input::-ms-input-placeholder {
     content: '';
 }
 
+.wrong-pw {
+    padding-top:60px;
+    display:table;
+    color:#4CAF52;
+    text-align:center;
+    font-size:15px;
+}
+
 p {
   display:table;
   margin:auto;
   margin-top:20px;
   font-size:1.2em;
   font-family:Arial;
-}
-
-.wrong-pw {
-    padding-top:90px;
-    display:table;
-    color:#4CAF52;
-    text-align:center;
-    font-size:15px;
 }
