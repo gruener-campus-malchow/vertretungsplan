@@ -1,0 +1,14 @@
+.no-plan {
+    top:75px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    position:fixed;
+    background-color:#15781B;
+    color:#fff;
+    text-align:center;
+    line-height:80vh;
+    font-size:20px;
+    font-weight:400;
+    z-index:100;
+}

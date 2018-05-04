@@ -3,7 +3,7 @@ if (parameters['user'] === 'foyer') {
 }
 
 function dropdownChanged() {
-  if (getDropdown().value !== 'Alle') {
+  if (getDropdown().value !== 'ALLE') {
     parameters['klasse'] = getDropdown().value;
   } else {
     parameters['klasse'] = '';
