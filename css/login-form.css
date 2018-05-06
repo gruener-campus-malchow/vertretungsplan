@@ -82,6 +82,7 @@ input::-ms-input-placeholder {
     background-color:rgba(0, 0, 0, 0);
     z-index:10;
     box-shadow:none;
+    cursor:pointer;
 }
 .submit:focus {
     background-color:rgba(0, 0, 0, 0);

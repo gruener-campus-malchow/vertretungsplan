@@ -1,7 +1,22 @@
-::-webkit-scrollbar
+/*::-webkit-scrollbar
 {
   width: 15px;
   height:7px;
+}
+
+::-webkit-scrollbar-track
+{
+  background:rgba(0, 0, 0, .2);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background:var(--scrollbar-color);
+}*/
+::-webkit-scrollbar
+{
+  width: 0px;
+  height:0px;
 }
 
 ::-webkit-scrollbar-track

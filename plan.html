@@ -7,17 +7,26 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600">
     <link rel="stylesheet" type="text/css" href="http://www.memaxe.com/resources/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/no-plan.css">
-
     <link rel="stylesheet" type="text/css" href="css/header.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!--<link href="css/colors.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+
+
+
+
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/header.css" rel="stylesheet" type="text/css" />
     <link href="css/plan.css" rel="stylesheet" type="text/css" />
-    <link href="css/fonts.css" rel="stylesheet" type="text/css" />
-    <link href="css/uhrzeit.css" rel="stylesheet" />
-    <link href="css/wrong-password.css" rel="stylesheet" />
-    <link href="css/scrollbar.css" rel="stylesheet"/>-->
+
+
+
+
+
+
+
+
+
+
 </head>
 <body>
     <div class="plan" id="plan">
@@ -34,26 +43,50 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-        <!--<div class="header-info" id="header-info">
-            <div class="info-container" id="info-container"></div>
-        </div>-->
-            
         <div class="no-plan hidden" id="kein-plan">Es ist kein neuer Plan verfügbar.</div>
 
-        <!--<div class="plan-body">
+
+
+
+
+
+
+
+
+
+
+
+        <div id="wrong-pswd"></div>
+        <span id="klassenstufe">
+            <span class="hidden" id="label-klassenstufe">Klassenstufe:</span>
+            <span class="hidden" id="text-klassenstufe"></span>
+        </span>
+        <div class="info-button" id="info-button"></div>
+
+
+
+
+
+        <div class="header-info" id="header-info">
+            <div class="info-container" id="info-container"></div>
+        </div>
+
+
+
+
+
+
+
+
+
+            
+
+        <div class="plan-body">
             <div class="hidden" id="left-side">
                 <div class="info-text" id="info-text"></div>
             </div>
             <div class="kasten-container" id="kasten-container"></div>
-        </div>-->
+        </div>
 
     </div>      
     
@@ -69,13 +102,14 @@
 
 
 
-    <script type="text/javascript" src="js/dates.js"></script>
-    <script type="text/javascript" src="js/style.js"></script>
-    <script type="text/javascript" src="js/kasten.js"></script>
-    <script type="text/javascript" src="js/scroll.js"></script>
-    <script type="text/javascript" src="js/refresh.js"></script>
-    <script type="text/javascript" src="js/dropdown.js"></script>
-    <script type="text/javascript" src="js/jsonparser.js"></script>
     <script type="text/javascript" src="js/extractUrlParameter.js"></script>
+    <script type="text/javascript" src="js/dates.js"></script>
+    <script type="text/javascript" src="js/kasten.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/style.js"></script>
+    <script type="text/javascript" src="js/jsonparser.js"></script>
+    <script type="text/javascript" src="js/scroll.js"></script>
+    <script type="text/javascript" src="js/dropdown.js"></script>
+    <script type="text/javascript" src="js/refresh.js"></script>
 </body>
 </html>
