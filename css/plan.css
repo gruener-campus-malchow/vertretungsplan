@@ -9,9 +9,10 @@
     flex-direction:row;
 }
 .kasten-container {
-    width:100%;
     top:115px;
     bottom:0px;
+    left:0px;
+    right:0px;
     position:absolute;
     overflow-y:auto;
 }
@@ -27,14 +28,10 @@
 .date {
     width:100%;
     height:42px;
-    top:10px;
     margin-top:45px;
     margin-bottom:20px;
-    margin-left:0px;
-    margin-right:0px;
     padding:5px;
     display:block;
-    position:relative;
     border-radius:0px;
     /*background-color:#2D9434;*/
     background-color:#4CAF52;
