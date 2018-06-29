@@ -55,7 +55,7 @@ function httpRequestReady(httpreq) {
 }
 
 function getApiUrl() {
-  return 'http://fbi.gruener-campus-malchow.de/cis/pupilplanapi.php';
+  return 'https://cis.gruener-campus-malchow.de/cis/pupilplanapi.php';
 }
 
 function getUrlArguments() {
